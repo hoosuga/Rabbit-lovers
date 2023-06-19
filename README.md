@@ -31,7 +31,7 @@
 - うさんぽ会のお知らせ
 
 ## 設計書
-- 実装機能リスト
+- 実装機能リスト  
 URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1RWVFFDrac/edit?usp=sharing
 
 ## 開発環境
