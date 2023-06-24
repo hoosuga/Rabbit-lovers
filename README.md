@@ -33,7 +33,7 @@
 ## 設計書
 - 実装機能リスト  
 URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1RWVFFDrac/edit?usp=sharing
-- 図面遷移図
+- 図面遷移図  
 ユーザー側  
 URL：https://drive.google.com/file/d/14z_3gOyldmR8LnDbGg96uRq9DSAHQJLA/view?usp=sharing
 
