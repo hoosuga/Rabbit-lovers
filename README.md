@@ -35,10 +35,14 @@
 URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1RWVFFDrac/edit?usp=sharing
 - 図面遷移図  
 ユーザー側  
-URL：https://drive.google.com/file/d/1WhtvqPMM_GI2U_iCp2x6wgyeV1H8MsYS/view?usp=sharing
+URL：https://drive.google.com/file/d/1WhtvqPMM_GI2U_iCp2x6wgyeV1H8MsYS/view?usp=sharing  
+管理者側
+URL：https://drive.google.com/file/d/1w66HbwGXsnUfls8vJojS-d_LmictzXsY/view?usp=sharing
 - ワイヤーフレーム  
 ユーザー側
-URL：https://drive.google.com/file/d/1TvzWuSI_gQTqQQPDorCbD91XZ8a9y3kK/view?usp=sharing
+URL：https://drive.google.com/file/d/1TvzWuSI_gQTqQQPDorCbD91XZ8a9y3kK/view?usp=sharing  
+管理者側
+URL：https://drive.google.com/file/d/1OE3lkjRG9T5we-JbxsbEIILp4VVWw2xn/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
