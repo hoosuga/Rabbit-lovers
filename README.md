@@ -35,7 +35,7 @@
 URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1RWVFFDrac/edit?usp=sharing
 - 図面遷移図  
 ユーザー側  
-URL：https://drive.google.com/file/d/14z_3gOyldmR8LnDbGg96uRq9DSAHQJLA/view?usp=sharing
+URL：https://drive.google.com/file/d/1gdvBYC0IUWWtltsnDVw3Kt6rGXLBjj2H/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
