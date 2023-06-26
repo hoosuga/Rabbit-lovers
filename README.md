@@ -34,15 +34,15 @@
 - 実装機能リスト  
 URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1RWVFFDrac/edit?usp=sharing
 - 図面遷移図  
-ユーザー側  
-URL：https://drive.google.com/file/d/1zg9yOE2uKKG7ZAFmg0QTEScH64hjVZwk/view?usp=sharing  
-管理者側  
-URL：https://drive.google.com/file/d/1FVpfCjcgJ6_NFGOtgQlJOMg2fn8JQhfY/view?usp=sharing
+  - ユーザー側  
+    URL：https://drive.google.com/file/d/1zg9yOE2uKKG7ZAFmg0QTEScH64hjVZwk/view?usp=sharing  
+  - 管理者側  
+    URL：https://drive.google.com/file/d/1FVpfCjcgJ6_NFGOtgQlJOMg2fn8JQhfY/view?usp=sharing
 - ワイヤーフレーム  
-ユーザー側  
-URL：https://drive.google.com/file/d/1rFozZ-rf80hxjmNxRuTYxlrRR4OelTKA/view?usp=sharing  
-管理者側  
-URL：https://drive.google.com/file/d/1_iKKaswVhBU52jaAPV5RNzfZWHb6yRxb/view?usp=sharing
+  - ユーザー側  
+    URL：https://drive.google.com/file/d/1rFozZ-rf80hxjmNxRuTYxlrRR4OelTKA/view?usp=sharing  
+  - 管理者側  
+    URL：https://drive.google.com/file/d/1_iKKaswVhBU52jaAPV5RNzfZWHb6yRxb/view?usp=sharing
 - ER図  
 URL：https://drive.google.com/file/d/1mnewPC8DDGqNgOURpItCUSc9jLDGnCfi/view?usp=sharing
 
