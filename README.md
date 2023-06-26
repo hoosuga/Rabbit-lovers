@@ -43,6 +43,8 @@ URL：https://drive.google.com/file/d/1FVpfCjcgJ6_NFGOtgQlJOMg2fn8JQhfY/view?usp
 URL：https://drive.google.com/file/d/1rFozZ-rf80hxjmNxRuTYxlrRR4OelTKA/view?usp=sharing  
 管理者側  
 URL：https://drive.google.com/file/d/1_iKKaswVhBU52jaAPV5RNzfZWHb6yRxb/view?usp=sharing
+- ER図  
+URL：https://drive.google.com/file/d/1mnewPC8DDGqNgOURpItCUSc9jLDGnCfi/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
