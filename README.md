@@ -44,7 +44,7 @@ URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1
   - 管理者側  
     URL：https://drive.google.com/file/d/1_iKKaswVhBU52jaAPV5RNzfZWHb6yRxb/view?usp=sharing
 - ER図  
-URL：https://drive.google.com/file/d/1mnewPC8DDGqNgOURpItCUSc9jLDGnCfi/view?usp=sharing
+URL：https://drive.google.com/file/d/12CpkMRPfwQp_WsiLk5ZJS0tciOyJmNOK/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
