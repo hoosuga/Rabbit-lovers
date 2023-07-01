@@ -44,7 +44,7 @@ URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1
   - 管理者側  
     URL：https://drive.google.com/file/d/1_iKKaswVhBU52jaAPV5RNzfZWHb6yRxb/view?usp=sharing
 - ER図  
-URL：https://drive.google.com/file/d/1utRwa390kkJ_tbbTpd5SBqCd5NxgxMya/view?usp=sharing  
+URL：https://drive.google.com/file/d/1U6cwBjQUMq06_7U_BXw2C_krdDAWNk7i/view?usp=sharing  
 - テーブル定義書  
 URL：https://docs.google.com/spreadsheets/d/1Fwqgr0M3vSgXWUyKUJV1pac6MOa_hFvbhoonYg7Qq3o/edit?usp=sharing  
 
