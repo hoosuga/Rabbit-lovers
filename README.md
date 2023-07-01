@@ -47,6 +47,8 @@ URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1
 URL：https://drive.google.com/file/d/1U6cwBjQUMq06_7U_BXw2C_krdDAWNk7i/view?usp=sharing  
 - テーブル定義書  
 URL：https://docs.google.com/spreadsheets/d/1Fwqgr0M3vSgXWUyKUJV1pac6MOa_hFvbhoonYg7Qq3o/edit?usp=sharing  
+- アプリケーション詳細設計書  
+URL：https://docs.google.com/spreadsheets/d/1_EQWGFQoTS7Uw_TedCXTPR7NeF8qqqWeGOiSWyNFkzg/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
