@@ -15,7 +15,7 @@ categories = category_names.map do |name|
   Category.create!(name: name)
 end
 
-Admin.create!(email: "admin@test.com", password: "password")
+Admin.create!(email: "admin01@test.com", password: "admin01")
 
 #if Rails.env.development
   
