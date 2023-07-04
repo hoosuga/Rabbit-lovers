@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :comments
   has_many :likes
-  has_many :like_rooms, through: :likes, source: :room
+  #has_many :like_rooms, through: :likes, source: :room メンターさんが作ったけどなにこれ？
 end
