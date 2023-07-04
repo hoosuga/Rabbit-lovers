@@ -17,48 +17,42 @@ end
 
 Admin.create!(email: "admin01@test.com", password: "admin01")
 
-#if Rails.env.development
+#if Rails.env.development?
   
-(1..10).each do |n|
-  user = User.create!(name: "user#{n}",
-               email: "user#{n}@test.com",
-               password: "password")
-  if n == 10
-  elsif n ==9
-   room = user.rooms.create!(title: "test-private",
-                       body: "text" * rand(5..10),
-                       status: 2)
-    categories.sample(rand(1..3)).each do |category|
-      CategoryRoom.create!(room_id: room.id, category_id: category.id)
-    end
-  else
-    (1..rand(1..2)).each do |nn|
-      room = user.rooms.create!(title: "test#{n}-#{nn}",
-                         body: "text" * rand(5..10))
+  (1..10).each do |n|
+    user = User.create!(name: "user#{n}",
+                 email: "user#{n}@test.com",
+                 password: "password")
+    if n == 10
+    elsif n == 9
+     room = user.rooms.create!(title: "test-private",
+                         body: "text" * rand(5..10),
+                         status: 2)
       categories.sample(rand(1..3)).each do |category|
         CategoryRoom.create!(room_id: room.id, category_id: category.id)
       end
+    else
+      (1..rand(1..2)).each do |nn|
+        room = user.rooms.create!(title: "test#{n}-#{nn}",
+                           body: "text" * rand(5..10))
+        categories.sample(rand(1..3)).each do |category|
+          CategoryRoom.create!(room_id: room.id, category_id: category.id)
+        end
+      end
     end
   end
-end
+  
+  rooms = Room.all.sample(5)
+  
+  users = User.where(id: [1, 2, 3])
+  users.each_with_index do |user, i|
+    user.comments.create!(room_id: rooms[i].id,
+                          body: "comment" * rand(5..10))
+  end
+  
+  users = User.where(id: [1, 3])
+  users.each_with_index do |user, i|
+    user.likes.create!(room_id: rooms[i].id)
+  end
 
 #end
-
-#rooms = Room.all.sample(5)
-#users = User.where(id: [1, 2, 3])
-#users.each_with_index do |user, i|
-#  user.likes.create!(room_id: rooms[i])
-#end
-
-rooms = Room.all.sample(5)
-
-users = User.where(id: [1, 2, 3])
-users.each_with_index do |user, i|
-  user.comments.create!(room_id: rooms[i].id,
-                        body: "comment" * rand(5..10))
-end
-
-users = User.where(id: [1, 3])
-users.each_with_index do |user, i|
-  user.likes.create!(room_id: rooms[i].id)
-end
