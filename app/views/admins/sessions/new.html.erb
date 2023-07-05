@@ -1,26 +1,39 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-9 px-5 px-sm-0">
+      <div class="p-3"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 19px; text-decoration: underline;">管理者ログイン</span></div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-9 px-5 px-sm-0">
+      <table class="table table-borderless">
+        <tbody>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" , size: 40 %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password, "パスワード" %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", size: 40 %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= button_tag(type: "submit", class: "btn btn-info btn-sm rounded-pill") do %>　　　　 　　　　　ログイン　　　　　　　　　<% end %></td>
+            </tr>
+            <%# if devise_mapping.rememberable? %>
+              <!--
+              <div class="field">
+                <%#= f.check_box :remember_me %>
+                <%#= f.label :remember_me %>
+              </div>
+              -->
+            <%# end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 <%= render "admins/shared/links" %>
