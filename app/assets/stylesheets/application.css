@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.btn-success {
+  background-color: #00fa9a !important;
+  border-color: #00fa9a !important;
+  color: black;
+}
+
+.btn-success:hover, .btn-success:not(:disabled):not(.disabled):active {
+  background-color: #00cc7e !important;
+  border-color: #00cc7e !important;
+}
