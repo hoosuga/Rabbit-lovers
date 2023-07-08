@@ -1,26 +1,41 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">ログイン</span></div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+</div>
+<div class="container pt-3">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row pb-2 pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>メールアドレス</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" , size: 30 %>
+      </div>
+    </div>
+    <div class="row pb-2 pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>パスワード</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </div>
+    <%# if devise_mapping.rememberable? %>
+      <!--<div class="field">
+        <%#= f.check_box :remember_me %>
+        <%#= f.label :remember_me %>
+      </div>-->
+    <%# end %>
+    <div class="row pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2"></div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= button_tag(type: "submit", class: "btn btn-primary btn-sm rounded-pill", ) do %>ログイン<% end %>
+      </div>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
+<%#= render "users/shared/links" %>
