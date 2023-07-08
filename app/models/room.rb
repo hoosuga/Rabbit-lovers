@@ -3,4 +3,7 @@ class Room < ApplicationRecord
   has_many :comments
   has_many :likes
   has_many :categories, through: :categosy_rooms
+  
+  enum status: { open: 0, close: 2 }
+  
 end

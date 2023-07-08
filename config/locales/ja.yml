@@ -1,0 +1,6 @@
+ja:
+  enums:
+    room:
+      status:
+        open: "公開"
+        close: "非公開(下書き)"
