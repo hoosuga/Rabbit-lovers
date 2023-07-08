@@ -14,7 +14,7 @@
         <%= f.label :name, "名前" %>
       </div>
       <div class="col-sm-8 col-md-8 col-lg-8">
-        <%= f.text_field :name, autofocus: true, autocomplete: "名前", placeholder: "名前", size: 34 %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "名前", placeholder: "名前", size: 30 %>
       </div>
     </div>
     <div class="row pb-2 pl-5">
@@ -22,7 +22,7 @@
         <%= f.label :email, "メールアドレス" %>
       </div>
       <div class="col-sm-8 col-md-8 col-lg-8">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" , size: 34 %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" , size: 30 %>
       </div>
     </div>
     <div class="row pb-2 pl-5">
@@ -33,7 +33,7 @@
         <% end %></label>
       </div>
       <div class="col-sm-8 col-md-8 col-lg-8">
-        <%= f.password_field :password, autofocus: true, autocomplete: "パスワード(6文字以上)", placeholder: "パスワード(6文字以上)", size: 34 %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "パスワード(6文字以上)", placeholder: "パスワード(6文字以上)", size: 30 %>
       </div>
     </div>
     <div class="row pb-2 pl-5">
@@ -41,7 +41,7 @@
         <%= f.label :password_confirmation, "パスワード(確認用)" %>
       </div>
       <div class="col-sm-8 col-md-8 col-lg-8">
-        <%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)", placeholder: "パスワード(確認用)" , size: 34 %>
+        <%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)", placeholder: "パスワード(確認用)" , size: 30 %>
       </div>
     </div>
     <div class="row pl-5">
@@ -52,5 +52,16 @@
     </div>
   <% end %>
 </div>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 19px; text-decoration: underline;">すでに登録済み or お試ししたい方</span></div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <p class="pl-5"><%= link_to "ログインページ", new_user_session_path %>　はこちらから！</p>
+</div>
+
 
 <%#= render "users/shared/links" %>
