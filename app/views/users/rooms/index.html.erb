@@ -1,2 +1,73 @@
-<h1>Users::Rooms#index</h1>
-<p>Find me in app/views/users/rooms/index.html.erb</p>
+<p id="notice"></p>
+<div class="sidebar">
+  <!--カテゴリのタグ検索機能後で入れる -->
+  <%#= render 'public/shared/genre_search', genres: @genres %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">みんなのトークルーム</span></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">トークルーム</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">新規トークルーム設立</span></div>
+    </div>
+  </div>
+  <%= form_with model: @room do |f| %>
+    <div class="row pt-3">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>トークルーム名</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.text_field :title, placeholder: "トークルーム名" , size: 30 %>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>カテゴリ</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <!--カテゴリのタグチェック後で入れる -->
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>本文</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.text_area :body, placeholder: "トークルーム名" , size: 30x2 %>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-2 col-md-2 col-lg-2"></div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <!-- 公開非公開のボタンを入れる -->
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-sm-2 col-md-2 col-lg-2"></div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.submit "トークルーム設立！", class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>
