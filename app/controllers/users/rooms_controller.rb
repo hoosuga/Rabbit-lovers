@@ -8,7 +8,7 @@ class Users::RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.save
-    redirect_to room_path(@room.id)
+    redirect_to room_path(room.id)
   end
 
   def show
