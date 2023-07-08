@@ -2,16 +2,18 @@ class Users::RoomsController < ApplicationController
   def index
     @room = Room.new
     
+    @rooms = Room.all.where(status: 'open')
     @rooms = Room.page(params[:page]).per(10)
   end
   
   def create
     @room = Room.new(room_params)
     @room.save
-    redirect_to room_path(room.id)
+    redirect_to room_path(@room.id)
   end
 
   def show
+    @room = Room.find(params[:id])
   end
 
   def edit
@@ -26,7 +28,7 @@ class Users::RoomsController < ApplicationController
   private
   
   def room_params
-    params.require(:room).permit(:title, :body, :status, :user_id)
+    params.require(:room).permit(:title, :body, :status, :user_id, category_ids: [])
   end
   
 end

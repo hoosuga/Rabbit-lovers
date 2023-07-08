@@ -33,7 +33,7 @@
       <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">新規トークルーム設立</span></div>
     </div>
   </div>
-  <%= form_with model: @room do |f| %>
+  <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
     <div class="row pt-3">
       <div class="col-sm-2 col-md-2 col-lg-2">
         <label>トークルーム名</label>
@@ -48,6 +48,12 @@
       </div>
       <div class="col-sm-10 col-md-10 col-lg-10">
         <!--カテゴリのタグチェック後で入れる -->
+        <%#= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+          <%#= category.label do %>
+            <%#= category.check_box %>
+            <%#= category.text %>
+          <%# end %>
+        <%# end %>
       </div>
     </div>
     <div class="row pt-3">
@@ -61,7 +67,11 @@
     <div class="row pt-3">
       <div class="col-sm-2 col-md-2 col-lg-2"></div>
       <div class="col-sm-10 col-md-10 col-lg-10">
-        <!-- 公開非公開のボタンを入れる -->
+        <%= f.radio_button :status, Room.statuses.key(0) %>
+        <%= f.label :status, Room.statuses_i18n[:open] %>
+        <span style="padding-left: 30px;">
+          <%= f.radio_button :status, Room.statuses.key(2) %>
+          <%= f.label :status, Room.statuses_i18n[:close] %></span>
       </div>
     </div>
     <div class="row pt-3">
