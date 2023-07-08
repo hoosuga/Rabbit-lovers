@@ -6,6 +6,7 @@
     </div>
   </div>
 </div>
+
 <div class="container pt-3">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="row pb-2 pl-5">
@@ -38,4 +39,16 @@
     </div>
   <% end %>
 </div>
+
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">会員登録がお済ではない方</span></div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <p class="pl-5"><%= link_to "新規会員登録ページ", new_user_registration_path %>　はこちらから！</p>
+</div>
+
 <%#= render "users/shared/links" %>

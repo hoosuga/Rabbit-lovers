@@ -11,7 +11,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+    <header>
+      <div class="container">
+        <div class="row">
+          
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <div class="container mb-3 mt-2 ">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight © 2023 RabbitLovers Inc.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
