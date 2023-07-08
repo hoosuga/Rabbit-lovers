@@ -13,4 +13,11 @@ class Users::UsersController < ApplicationController
   
   def withdraw
   end
+  
+  private
+
+  def user_params
+    params.require(:user).permit(:image)  
+  end
+
 end
