@@ -58,4 +58,6 @@ URL：https://docs.google.com/spreadsheets/d/1_EQWGFQoTS7Uw_TedCXTPR7NeF8qqqWeGO
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です。
+- ロゴ  
+  - designevo  
+    URL：https://www.designevo.com/
