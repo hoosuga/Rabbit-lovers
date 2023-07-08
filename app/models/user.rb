@@ -18,6 +18,11 @@ class User < ApplicationRecord
     image
   end
   
-  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', name: 'ゲスト') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+ 
   #has_many :like_rooms, through: :likes, source: :room メンターさんが作ったけどなにこれ？
 end
