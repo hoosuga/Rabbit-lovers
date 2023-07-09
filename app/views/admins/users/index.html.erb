@@ -1,2 +1,47 @@
-<h1>Admins::Users#index</h1>
-<p>Find me in app/views/admins/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2">
+        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">会員一覧</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table">
+        <thead>
+          <th class="col-sm-1 col-md-1 col-lg-1 pl-3">ID</th>
+          <th class="col-sm-4 col-md-4 col-lg-4">名前</th>
+          <th class="col-sm-5 col-md-5 col-lg-5">メールアドレス</th>
+          <th class="col-sm-2 col-md-2 col-lg-2">ステータス</th>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td class="pl-3"><%= user.id %></td>
+              <td>
+                <%= link_to admins_user_path(user.id) do %>
+                  <span style="text-decoration: underline;"><%= user.name %></span>
+                <% end %>
+              </td>
+              <td><%= user.email %></td>
+              <td>
+                <% if user.is_deleted == false %>
+                  <span class="font-weight-bold" style="color:#00AA00;">有効</span>
+                <% else %>
+                  <span class="font-weight-bold"  style="color:#C0C0C0;">退会</span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-2">
+    <%= paginate @users %>
+  </div>
+</div>
