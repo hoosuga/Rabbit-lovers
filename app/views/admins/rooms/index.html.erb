@@ -27,7 +27,7 @@
                 <% end %>さん
               </td>
               <td>
-                <%# room.categosy_rooms.name %>
+                <%= Category.where(id: room.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %>
               </td>
               <td>
                 <%= link_to admins_room_path(room.id) do %>

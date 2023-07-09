@@ -1,2 +1,25 @@
-<h1>Admins::Rooms#show</h1>
-<p>Find me in app/views/admins/rooms/show.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="p-2">
+        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">
+          <%= @room.title %>　のルーム
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <li class="d-flex justify-content-end">
+        <span class="pr-5">ルーム：<%= @room.status_i18n %></span>
+        <span class="pr-5">カテゴリ：<%#= @room.categosy_rooms.category.name %></span>
+      </li>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+    </div>
+  </div>
+</div>
