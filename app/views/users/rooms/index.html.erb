@@ -56,52 +56,52 @@
     </div>
   </div>
   <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>トークルーム名</label>
-      </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.text_field :title, placeholder: "トークルーム名", class: 'form-control', size: "2" %>
-      </div>
+  <div class="row pt-3 pl-5">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>トークルーム名</label>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>カテゴリ</label>
-      </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-          <%= category.label do %>
-            <span class="pr-4">
-              <%= category.check_box %>
-              <%= category.text %>
-            </span>
-          <% end %>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+      <%= f.text_field :title, placeholder: "トークルーム名", class: 'form-control', size: "2" %>
+    </div>
+  </div>
+  <div class="row pt-3 pl-5">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>カテゴリ</label>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+      <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+        <%= category.label do %>
+          <span class="pr-4">
+            <%= category.check_box %>
+            <%= category.text %>
+          </span>
         <% end %>
-      </div>
+      <% end %>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>本文</label>
-      </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.text_area :body, placeholder: "本文" , class: 'form-control',size: "2x3" %>
-      </div>
+  </div>
+  <div class="row pt-3 pl-5">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>本文</label>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.radio_button :status, Room.statuses.key(0) %>
-        <%= f.label :status, Room.statuses_i18n[:open] %>
-        <span style="padding-left: 30px;">
-          <%= f.radio_button :status, Room.statuses.key(2) %>
-          <%= f.label :status, Room.statuses_i18n[:close] %></span>
-      </div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+      <%= f.text_area :body, placeholder: "本文" , class: 'form-control',size: "2x3" %>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.submit "トークルーム設立！", class: "btn btn-success" %>
-      </div>
+  </div>
+  <div class="row pt-3 pl-5">
+    <div class="col-sm-2 col-md-2 col-lg-2"></div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+      <%= f.radio_button :status, Room.statuses.key(0) %>
+      <%= f.label :status, Room.statuses_i18n[:open] %>
+      <span style="padding-left: 30px;">
+        <%= f.radio_button :status, Room.statuses.key(2) %>
+        <%= f.label :status, Room.statuses_i18n[:close] %></span>
     </div>
+  </div>
+  <div class="row pt-3 pl-5">
+    <div class="col-sm-2 col-md-2 col-lg-2"></div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+      <%= f.submit "トークルーム設立！", class: "btn btn-success" %>
+    </div>
+  </div>
   <% end %>
 </div>
