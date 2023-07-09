@@ -1,2 +1,51 @@
-<h1>Users::Rooms#show</h1>
-<p>Find me in app/views/users/rooms/show.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2">
+        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">
+          <%= @room.title %>　のルーム
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <li class="d-flex justify-content-end">
+        <span class="pr-3">ルーム：<%= @room.status_i18n %></span>
+        <span class="pr-3">カテゴリ：<%= Category.where(id: @room.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %></span>
+        <span>いいねする</span>
+      </li>
+    </div>
+  </div>
+</div>
+<div class="container pt-2">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table frame="box" rules="none">
+        <tbody>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag @room.user.get_profile_image %></td>
+            <td class="col-sm-9 col-md-9 col-lg-9">
+              <%= localize @room.updated_at, format: :short %></br>
+              <%= link_to user_path(@room.user.id) do %>
+                <span style="text-decoration: underline;"><%= @room.user.name %></span>
+              <% end %>さん
+            </td>
+            <td class="col-sm-2 col-md-2 col-lg-2">
+              <div class="text-right">
+                <% if @room.user == current_user %>
+                  <%= link_to "編集する", edit_room_path(@room.id), class: 'btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4' %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>
+            <td colspan="2" class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= @room.body %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
