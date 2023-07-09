@@ -1,3 +1,47 @@
-<h1>Admins::Rooms#index</h1>
-<p>Find me in app/views/admins/rooms/index.html.erb</p>
-<%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-outline-secondary m-3", method: :delete %>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">トークルーム一覧</span></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table">
+        <thead>
+          <th class="col-sm-1 col-md-1 col-lg-1 pl-3">ID</th>
+          <th class="col-sm-2 col-md-2 col-lg-2">設立者</th>
+          <th class="col-sm-2 col-md-2 col-lg-2">カテゴリ</th>
+          <th class="col-sm-4 col-md-4 col-lg-4">トークルーム名</th>
+          <th class="col-sm-2 col-md-2 col-lg-2">設立日</th>
+        </thead>
+        <tbody>
+          <% @rooms.each do |room| %>
+            <tr>
+              <td class="pl-3"><%= room.id %></td>
+              <td>
+                <%= link_to admins_user_path(room.user.id) do %>
+                  <span style="text-decoration: underline;"><%= room.user.name %></span>
+                <% end %>さん
+              </td>
+              <td>
+                <%# room.categosy_rooms.name %>
+              </td>
+              <td>
+                <%= link_to admins_room_path(room.id) do %>
+                  <%= room.title %>
+                <% end %>
+              </td>
+              <td><%= localize room.created_at, format: :short %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-2">
+    <%= paginate @rooms %>
+  </div>
+</div>
