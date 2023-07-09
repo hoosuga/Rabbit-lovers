@@ -4,3 +4,7 @@ ja:
       status:
         open: "公開"
         close: "非公開(下書き)"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%Y/%m/%d %H:%M"
