@@ -8,18 +8,38 @@
         </span>
       </div>
     </div>
-    <div class="col-sm-6 col-md-6 col-lg-6">
+    <div class="col-sm-6 col-md-6 col-lg-6 p-2">
       <li class="d-flex justify-content-end">
-        <span class="pr-5">ルーム：<%= @room.status_i18n %></span>
-        <span class="pr-5">カテゴリ：<%#= @room.categosy_rooms.category.name %></span>
+        <span class="pr-3">ルーム：<%= @room.status_i18n %></span>
+        <span>カテゴリ：<%= Category.where(id: @room.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %></span>
       </li>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
+      <span><%= link_to "このルームを削除する", admins_room_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4" %></span>
 </div>
 
-<div class="container">
+<div class="container pt-2">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
+      <table frame="box" rules="none">
+        <tbody>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag @room.user.get_profile_image %></td>
+            <td class="col-sm-11 col-md-11 col-lg-11">
+              <%= localize @room.updated_at, format: :short %></br>
+              <%= link_to user_path(@room.user.id) do %>
+                <span style="text-decoration: underline;"><%= @room.user.name %></span>
+              <% end %>さん
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>
+            <td class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= @room.body %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

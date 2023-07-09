@@ -8,5 +8,8 @@ class Admins::RoomsController < ApplicationController
   end
   
   def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_to admins_rooms_path
   end
 end
