@@ -25,18 +25,23 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about', as:'about'
     
     patch '/users/withdraw' => 'users#withdraw', as:'users_withdraw'
-    resources :users, only: [:index, :show, :edit, :update]
-    
-    resources :rooms, only: [:index, :show, :edit, :create, :update, :destroy]
-    
-    resources :rooms do
-      resources :comments, only: [:create]
+    resources :users, only: [:index, :show, :edit, :update] do
+      resources :rooms, only: [:index], module: :users
     end
     
-    resources :likes, only: [:index]
-    resources :rooms do
+    resources :rooms, only: [:index, :show, :edit, :create, :update, :destroy] do
+      resources :comments, only: [:create]
       resources :likes, only: [:create, :destroy]
     end
+    
+    #resources :rooms do
+     # resources :comments, only: [:create]
+    #end
+    
+    resources :likes, only: [:index]
+    #resources :rooms do
+      #resources :likes, only: [:create, :destroy]
+    #end
   end
   
 end
