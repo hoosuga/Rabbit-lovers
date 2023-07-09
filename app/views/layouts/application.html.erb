@@ -26,7 +26,7 @@
                 <% if user_signed_in? %>
                   <li class="nav-item d-flex justify-content-end"><%= render 'users/shared/after_sign_in_users' %></li>
                 <% elsif admin_signed_in? %>
-                  <%= render 'admins/shared/after_sign_in_admins' %>
+                  <li class="nav-item d-flex justify-content-end"><%= render 'admins/shared/after_sign_in_admins' %></li>
                 <% else %>
                   <li class="nav-item d-flex justify-content-end"><%= render 'users/shared/before_sign_in' %></li>
                 <% end %>
