@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">みんなのトークルーム</span></div>
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;"><%= @user.name %>のトークルーム</span></div>
     </div>
   </div>
   <div class="row">
@@ -15,17 +15,14 @@
           <% @rooms.each do |room| %>
             <tr>
               <td class="col-sm-2 col-md-2 col-lg-2 pl-5">
-                <%= image_tag room.user.get_profile_image %>
-              </td>
-              <td class="col-sm-2 col-md-2 col-lg-2">
                 <%= link_to user_path(room.user.id) do %>
-                  <span style="text-decoration: underline;"><%= room.user.name %></span>
-                <% end %>さん
+                  <%= image_tag room.user.get_profile_image %>
+                <% end %>
               </td>
-              <td class="col-sm-2 col-md-2 col-lg-2">
+              <td class="col-sm-3 col-md-3 col-lg-3">
                 <%= Category.where(id: room.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %>
               </td>
-              <td class="col-sm-4 col-md-4 col-lg-4">
+              <td class="col-sm-5 col-md-5 col-lg-5">
                 <%= link_to room_path(room.id) do %>
                   <%= room.title %>
                 <% end %>
