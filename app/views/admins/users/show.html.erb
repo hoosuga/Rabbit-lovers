@@ -1,2 +1,62 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2">
+        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">
+          <%= @user.name %>のページ
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row pl-5 pt-2">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <p class="font-weight-bold" style="font-size: 20px;">登録情報</p>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9 pr-5">
+      <%= link_to "編集する", edit_admins_user_path(@user.id), class: 'btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4' %>
+    </div>
+  </div>
+  <div class="row pl-5 pt-1">
+    <div class="col-sm-2 col-md-2 col-lg-2 pl-2">
+      <div class="d-flex justify-content-center p-2">
+        <%= image_tag @user.get_profile_image %>
+      </div>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+      <table border="1">
+        <tbody>
+          <tr>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ID</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.id %></td>
+          </tr>
+          <tr>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">名前</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">メールアドレス</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">自己紹介</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ステータス</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2">
+              <% if @user.is_deleted == false %>
+                <span class="font-weight-bold" style="color:#00AA00;">有効</span>
+              <% else %>
+                <span class="font-weight-bold"  style="color:#C0C0C0;">退会</span>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
