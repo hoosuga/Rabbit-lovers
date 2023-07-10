@@ -1,2 +1,58 @@
-<h1>Users::Users#edit</h1>
-<p>Find me in app/views/users/users/edit.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2">
+        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">
+          <%= @user.name %>さんの会員情報編集
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-2">
+  <%= form_with model: @user, url: user_path, method: :patch do |f| %>
+    <div class="row pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>アイコン画像</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.file_field :profile_image %>
+      </div>
+    </div>
+    <div class="row pt-3 pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>名前</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="row pt-3 pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>メールアドレス</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    <div class="row pt-3 pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>自己紹介</label>
+      </div>
+      <div class="col-sm-10 col-md-10 col-lg-10">
+        <%= f.text_area :introduction %>
+      </div>
+    </div>
+    <div class="row pt-3 pl-5">
+      <div class="col-sm-2 col-md-2 col-lg-2"></div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <%= f.submit "更新する", class: "btn btn-success btn-sm rounded-pill p-1 pl-4 pr-4" %>
+      </div>
+      <% end %>
+      <div class="col-sm-7 col-md-7 col-lg-7">
+        <%= link_to '　退会する　', users_withdraw_path, method: :patch, data: { confirm: '本当に退会しますか？' }, class:'btn btn-danger' %>
+      </div>
+   </div>
+</div>

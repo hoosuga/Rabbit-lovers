@@ -23,6 +23,10 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
+  
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
  
   #has_many :like_rooms, through: :likes, source: :room メンターさんが作ったけどなにこれ？
 end
