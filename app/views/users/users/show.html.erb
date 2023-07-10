@@ -56,10 +56,27 @@
       <p class="font-weight-bold" style="font-size: 20px;">トークルーム設立一覧</p>
     </div>
     <div class="col-sm-9 col-md-9 col-lg-9">
-      <%= link_to "一覧を見る", user_rooms_path(user_id: @user) %>
-      <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872;">
-        一覧を見る
-      </span>
+      <%= link_to user_rooms_path(user_id: @user) do %>
+        <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
+          一覧を見る
+        </span>
+      <% end %>
     </div>
   </div>
 </div>
+<% if @user == current_user %>
+<div class="container">
+  <div class="row pl-5 pt-5">
+    <div class="col-sm-3 col-md-3 col-lg-3">
+      <p class="font-weight-bold" style="font-size: 20px;">いいね一覧</p>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+      <%= link_to likes_path do %>
+        <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
+          一覧を見る
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
