@@ -1,2 +1,48 @@
-<h1>Users::Homes#top</h1>
-<p>Find me in app/views/users/homes/top.html.erb</p>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-sm-12 col-md-12 col-lg-12 pl-5">
+      <table align="center">
+        <tbody>
+          <tr>
+            <td><%= image_tag '/assets/top-side.jpg', :size =>'150x100' %></td>
+            <td>Rabbit loversは</br>
+                うさぎとうさぎが好きな人の幸せの輪を広げる</br>
+                コミュニティサイトです。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row pt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="d-flex justify-content-center p-2">
+        <%= link_to new_user_session_path do %>
+          <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
+            ログイン
+          </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="d-flex justify-content-center p-2">
+        <%= link_to new_user_session_path do %>
+          <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
+            ゲストユーザーログイン
+          </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="d-flex justify-content-center p-2">
+        <%= link_to new_user_registration_path do %>
+          <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
+            新規登録
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
