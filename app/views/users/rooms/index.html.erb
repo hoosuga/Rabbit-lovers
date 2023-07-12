@@ -1,4 +1,17 @@
 <p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 ">
+      <div class="d-flex justify-content-end">
+        <%= form_tag({controller:"rooms", action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '検索' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="sidebar">
   <!--カテゴリのタグ検索機能後で入れる -->
   <%#= render 'public/shared/genre_search', genres: @genres %>
