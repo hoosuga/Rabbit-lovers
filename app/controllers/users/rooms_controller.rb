@@ -2,7 +2,8 @@ class Users::RoomsController < ApplicationController
   def index
     @rooms = Room.all.where(status: 'open')
     if params[:search].present?
-      @rooms = @rooms.where('title LIKE ? OR body LIKE ? ', "%#{params[:search]}%", "%#{params[:search]}%").page(params[:page]).per(10)
+      @rooms = @rooms.where('title LIKE ? OR body LIKE ? ',
+                             "%#{params[:search]}%", "%#{params[:search]}%").page(params[:page]).per(10)
       #@rooms = @rooms.where('title LIKE ? OR body LIKE ? OR room.category_rooms.pluck(:category_id).pluck(:name) LIKE ? ', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").page(params[:page]).per(10)
     else
       @rooms = @rooms.all.page(params[:page]).per(10)
