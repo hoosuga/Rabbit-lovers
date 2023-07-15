@@ -1,6 +1,18 @@
 <p id="notice"></p>
 <div class="container">
   <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 ">
+      <div class="d-flex justify-content-end">
+        <%= form_tag({controller:"users", action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '検索' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="p-2">
         <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">会員一覧</span>
