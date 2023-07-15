@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 ">
       <div class="d-flex justify-content-end">
-        <%= form_tag({controller:"users::rooms", action:"index"}, method: :get) do %>
+        <%= form_tag({controller:"rooms", action:"index"}, method: :get) do %>
           <%= text_field_tag :search %>
           <%= submit_tag '検索' %>
         <% end %>

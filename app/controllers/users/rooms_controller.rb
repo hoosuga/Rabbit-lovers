@@ -1,6 +1,6 @@
 class Users::RoomsController < ApplicationController
   def index
-    @rooms = Room.all.where(status: 'open')
+    @rooms = Room.all.where(status: 0)
     
     if params[:search].present?
       @rooms = Room.search(params)
