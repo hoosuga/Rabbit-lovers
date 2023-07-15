@@ -1,9 +1,9 @@
 class Users::RoomsController < ApplicationController
   def index
     @rooms = Room.all.where(status: 'open')
+    
     if params[:search].present?
-      @rooms = @rooms.joins(:user, :categories).where('rooms.title LIKE ? OR rooms.body LIKE ? OR users.name LIKE ? OR categories.name LIKE ?',
-                                                      "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+      @rooms = Room.search(params)
     else
       @rooms = @rooms.all
     end
