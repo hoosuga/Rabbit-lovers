@@ -1,6 +1,12 @@
 class Admins::RoomsController < ApplicationController
   def index
-    @rooms = Room.page(params[:page]).per(10)
+    if params[:search].present?
+      @rooms = Room.search(params)
+    else
+      @rooms = Room.all
+    end
+    
+    @rooms = @rooms.page(params[:page]).per(10)
   end
 
   def show
