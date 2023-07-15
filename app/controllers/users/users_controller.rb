@@ -1,6 +1,11 @@
 class Users::UsersController < ApplicationController
   def index
-    @users = User.page(params[:page]).per(10)
+    if params[:search].present?
+      @users = User.search(params)
+    else
+      @users = User.all
+    end
+    @users = @users.page(params[:page]).per(10)
   end
 
   def show

@@ -10,6 +10,11 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes, dependent: :destroy
   
+  def self.search(params)
+    users =  User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
+    return users
+  end
+  
   def get_profile_image
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -28,5 +33,4 @@ class User < ApplicationRecord
     super && (is_deleted == false)
   end
  
-  #has_many :like_rooms, through: :likes, source: :room メンターさんが作ったけどなにこれ？
 end
