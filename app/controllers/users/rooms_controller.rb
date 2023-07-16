@@ -1,13 +1,10 @@
 class Users::RoomsController < ApplicationController
   def index
-    @rooms = Room.all.where(status: 0)
-    
     if params[:search].present?
-      @rooms = Room.search(params)
+      @rooms = Room.search(params).where(status: 0)
     else
-      @rooms = @rooms.all
+      @rooms = Room.all.where(status: 0)
     end
-    
     @rooms = @rooms.page(params[:page]).per(10)
     
     @room = Room.new

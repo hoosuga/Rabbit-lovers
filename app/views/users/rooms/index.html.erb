@@ -32,7 +32,6 @@
         <tbody>
           <% @rooms.each do |room| %>
             <tr>
-              <td><%= room.id %></td>
               <td class="col-sm-2 col-md-2 col-lg-2 pl-5">
                 <%= image_tag room.user.get_profile_image %>
               </td>
