@@ -3,8 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :room
   
   def self.search(params)
-    comments =  Comment.where('comments.body LIKE ?', "%#{params[:search]}%")
-    return comments
+    Comment.where('comments.body LIKE ?', "%#{params[:search]}%")
   end
   
 end

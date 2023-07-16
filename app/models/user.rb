@@ -11,8 +11,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   
   def self.search(params)
-    users =  User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
-    return users
+    User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
   end
   
   def get_profile_image
