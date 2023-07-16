@@ -27,11 +27,12 @@
     <div class="col-sm-12 col-md-12 col-lg-12">
       <table class="table">
         <thead>
-          <th colspan="5" style="text-align: center;">トークルーム</th>
+          <th colspan="6" style="text-align: center;">トークルーム</th>
         </thead>
         <tbody>
           <% @rooms.each do |room| %>
             <tr>
+              <td><%= room.id %></td>
               <td class="col-sm-2 col-md-2 col-lg-2 pl-5">
                 <%= image_tag room.user.get_profile_image %>
               </td>

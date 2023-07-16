@@ -20,3 +20,34 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table">
+        <thead>
+          <th class="col-sm-1 col-md-1 col-lg-1 pl-3">ID</th>
+          <th class="col-sm-2 col-md-2 col-lg-2">投稿者</th>
+          <th class="col-sm-7 col-md-7 col-lg-7">本文</th>
+          <th class="col-sm-2 col-md-2 col-lg-2"></th>
+        </thead>
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <td class="pl-3"><%= comment.id %></td>
+              <td>
+                <%= link_to admins_user_path(comment.user.id) do %>
+                  <span style="text-decoration: underline;"><%= comment.user.name %></span>
+                <% end %>
+              </td>
+              <td><%= comment.body %></td>
+              <td><%= link_to "削除する", admins_comment_path(comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-2">
+    <%= paginate @comments %>
+  </div>
+</div>
