@@ -1,2 +1,27 @@
-<h1>Admins::Categories#edit</h1>
-<p>Find me in app/views/admins/categories/edit.html.erb</p>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">カテゴリ編集
+      </span></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%= form_with model: @category, url: admins_category_path, method: :patch do |f| %>
+  <div class="row pt-3 pl-5">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>カテゴリ名</label>
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <%= f.submit "更新する", class: "btn btn-success btn-sm rounded-pill p-1 pl-4 pr-4" %>
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3">
+      <%= link_to "削除する", admins_category_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4" %>
+    </div>
+  </div>
+  <% end %>
+</div>

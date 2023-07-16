@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 category_names = %w(
-    category_1
-    category_2
-    category_3
+    雑談
+    健康
+    うさんぽ会
   )
 
 categories = category_names.map do |name|
