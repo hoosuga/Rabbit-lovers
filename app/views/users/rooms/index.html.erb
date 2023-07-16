@@ -12,9 +12,31 @@
   </div>
 </div>
 
-<div class="sidebar">
-  <!--カテゴリのタグ検索機能後で入れる -->
-  <%#= render 'public/shared/genre_search', genres: @genres %>
+<div class="container">
+  <div class="row">
+    <div class="sideber">
+      <%= form_with mode: @room, url: rooms_path, method: :get do |f| %>
+      <table class="table">
+        <thead>
+          <th style="text-align: center;">カテゴリ</th>
+        </thead>
+        <tbody>
+          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+            <tr>
+              <td>
+                <div class="pr-4">
+                  <%= category.check_box %>
+                  <%= category.text %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= submit_tag '検索' %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="container">

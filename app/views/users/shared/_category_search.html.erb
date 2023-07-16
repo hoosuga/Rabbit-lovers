@@ -1,0 +1,18 @@
+<%= form_with model: @rooms url: room_path, method: :get do |f| %>
+<table class="table">
+  <thead>
+    <th style="text-align: center;">カテゴリ</th>
+  </thead>
+  <tbody>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+      <%= category.label do %>
+        <span class="pr-4">
+          <%= category.check_box %>
+          <%= category.text %>
+        </span>
+      <% end %>
+      <%= submit_tag '検索' %>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

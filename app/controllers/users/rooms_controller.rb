@@ -1,5 +1,6 @@
 class Users::RoomsController < ApplicationController
   def index
+    #キーワード検索
     if params[:search].present?
       @rooms = Room.search(params).where(status: 0)
     else
@@ -7,7 +8,12 @@ class Users::RoomsController < ApplicationController
     end
     @rooms = @rooms.page(params[:page]).per(10)
     
+    #カテゴリタグ検索
+    
+    
+    #新規設立
     @room = Room.new
+    
   end
   
   def create
