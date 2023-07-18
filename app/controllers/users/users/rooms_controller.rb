@@ -6,11 +6,11 @@ class Users::Users::RoomsController < ApplicationController
       if params[:search].present?
         @rooms = @user.rooms.search(params)
       else
-        @rooms = @user.rooms
+        @rooms = @user.rooms.page(params[:page]).per(10)
       end
     else
       if params[:search].present?
-        @rooms = @user.rooms.where(status: 0)
+        @rooms = @user.rooms.where(status: 0).search(params)
       else
         @rooms = @user.rooms.where(status: 0)
       end

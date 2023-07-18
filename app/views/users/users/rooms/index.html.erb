@@ -13,6 +13,36 @@
 </div>
 <div class="container">
   <div class="row">
+    <div class="sideber">
+      <%= form_with url: rooms_path, method: :get do |f| %>
+      <table class="table">
+        <thead>
+          <th style="text-align: center;">カテゴリ</th>
+        </thead>
+        <tbody>
+          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+            <tr>
+              <td>
+                <div class="pr-4">
+                  <%# if category.text.in?(@category_name) %>
+                    <%#= category.check_box(checked: true) %> 
+                  <%# else %>
+                    <%#= category.check_box(checked: false) %> 
+                  <%# end %>
+                  <%#= category.text %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= submit_tag '検索' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;"><%= @user.name %>のトークルーム</span></div>
     </div>
