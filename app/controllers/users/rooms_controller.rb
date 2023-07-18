@@ -1,15 +1,24 @@
 class Users::RoomsController < ApplicationController
   def index
+    @category_ids = params[:category_ids]&.select(&:present?)
+    @category_name = Category.where(id: @category_ids).pluck(:name)
     #キーワード検索
     if params[:search].present?
-      @rooms = Room.search(params).where(status: 0)
+      @rooms = Room.search(params).where(status: 0).page(params[:page]).per(10)
+    elsif @category_ids.present?
+      room_ids = CategoryRoom.where(category_id: @category_ids).pluck(:room_id).uniq
+      @rooms = Room.where(id: room_ids).where(status: 0).page(params[:page]).per(10)
     else
-      @rooms = Room.all.where(status: 0)
+      @rooms = Room.all.where(status: 0).page(params[:page]).per(10)
     end
-    @rooms = @rooms.page(params[:page]).per(10)
-    
+    #@rooms = @rooms.page(params[:page]).per(10)
+    #byebug
     #カテゴリタグ検索
-    
+    #@category_ids = params[:category_ids]&.select(&:present?)
+    #if @category_ids.present?
+      
+      
+    #end
     
     #新規設立
     @room = Room.new

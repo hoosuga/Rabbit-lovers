@@ -15,7 +15,7 @@
 <div class="container">
   <div class="row">
     <div class="sideber">
-      <%= form_with mode: @room, url: rooms_path, method: :get do |f| %>
+      <%= form_with url: rooms_path, method: :get do |f| %>
       <table class="table">
         <thead>
           <th style="text-align: center;">カテゴリ</th>
@@ -25,7 +25,11 @@
             <tr>
               <td>
                 <div class="pr-4">
-                  <%= category.check_box %>
+                  <% if category.text.in?(@category_name) %>
+                    <%= category.check_box(checked: true) %> 
+                  <% else %>
+                    <%= category.check_box(checked: false) %> 
+                  <% end %>
                   <%= category.text %>
                 </div>
               </td>
