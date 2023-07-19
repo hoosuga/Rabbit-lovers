@@ -24,12 +24,12 @@
             <tr>
               <td>
                 <div class="pr-4">
-                  <%# if category.text.in?(@category_name) %>
-                    <%#= category.check_box(checked: true) %> 
-                  <%# else %>
-                    <%#= category.check_box(checked: false) %> 
-                  <%# end %>
-                  <%#= category.text %>
+                  <% if category.text.in?(@category_name) %>
+                    <%= category.check_box(checked: true) %> 
+                  <% else %>
+                    <%= category.check_box(checked: false) %> 
+                  <% end %>
+                  <%= category.text %>
                 </div>
               </td>
             </tr>
