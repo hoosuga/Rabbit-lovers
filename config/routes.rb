@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     patch '/users/withdraw' => 'users#withdraw', as:'users_withdraw'
     resources :users, only: [:index, :show, :edit, :update] do
       resources :rooms, only: [:index], module: :users
+      resources :likes, only: [:index], module: :users
     end
     
     resources :rooms, only: [:index, :show, :edit, :create, :update, :destroy] do
@@ -34,14 +35,7 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy]
     end
     
-    #resources :rooms do
-     # resources :comments, only: [:create]
-    #end
-    
-    resources :likes, only: [:index]
-    #resources :rooms do
-      #resources :likes, only: [:create, :destroy]
-    #end
+    #resources :likes, only: [:index]
   end
   
 end
