@@ -14,7 +14,17 @@
       <li class="d-flex justify-content-end">
         <span class="pr-3">ルーム：<%= @room.status_i18n %></span>
         <span class="pr-3">カテゴリ：<%= Category.where(id: @room.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %></span>
-        <span>いいねする</span>
+        <span>
+          <% if @room.liked_by?(current_user) %>
+            <%= link_to room_like_path(@room), method: :delete do %>
+              ♥<%= @room.likes.count %> いいね
+            <% end %>
+          <% else %>
+            <%= link_to room_likes_path(@room), method: :post do %>
+              ♡<%= @room.likes.count %> いいね
+            <% end %>
+          <% end %>
+        </span>
       </li>
     </div>
   </div>
