@@ -58,4 +58,34 @@
       </table>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <li class="d-flex justify-content-end">
+        <span class="pr-3">コメント件数：<%= @room.comments.count %></span>
+      </li>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table frame="box" rules="none">
+        <tbody>
+          <% @room.comments.each do |comment| %>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
+            <td class="col-sm-9 col-md-9 col-lg-9">
+              <%= localize comment.created_at, format: :short %></br>
+              <%= link_to user_path(comment.user.id) do %>
+                <span style="text-decoration: underline;"><%= comment.user.name %></span>
+              <% end %>さん
+            </td>
+            <td class="col-sm-2 col-md-2 col-lg-2"></td>
+          </tr>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>
+            <td colspan="2" class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= comment.body %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 </div>
