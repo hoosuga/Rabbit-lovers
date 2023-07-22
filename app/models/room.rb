@@ -10,7 +10,7 @@ class Room < ApplicationRecord
   
   def self.search(params)
      Room.joins(:user, :categories).where('rooms.title LIKE ? OR rooms.body LIKE ? OR users.name LIKE ? OR categories.name LIKE ?',
-                                                    "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").distinct
+                                          "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").distinct
   end
   
   def liked_by?(user)

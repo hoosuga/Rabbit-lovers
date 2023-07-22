@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :comments
   has_many :likes, dependent: :destroy
+  has_many :liked_rooms, through: :likes, source: :room
   
   def self.search(params)
     User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
