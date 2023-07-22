@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :users do
+    namespace :users do
+      get 'likes/index'
+    end
+  end
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
     sessions: "admins/sessions"
   }

@@ -1,0 +1,54 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 ">
+      <div class="d-flex justify-content-end">
+        <%= form_tag({controller:"rooms", action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '検索' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;"><%= @user.name %>のいいね一覧</span></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table">
+        <thead>
+          <th colspan="5" style="text-align: center;">トークルーム</th>
+        </thead>
+        <tbody>
+          <% @likes.each do |like| %>
+            <tr>
+              <td class="col-sm-2 col-md-2 col-lg-2 pl-5">
+                <%= link_to user_path(like.user.id) do %>
+                  <%= image_tag like.user.get_profile_image %>
+                <% end %>
+              </td>
+              <td class="col-sm-3 col-md-3 col-lg-3">
+                <%= Category.where(id: like.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %>
+              </td>
+              <td class="col-sm-5 col-md-5 col-lg-5">
+                <%= link_to room_path(like.id) do %>
+                  <%= like.title %>
+                <% end %>
+              </td>
+              <td class="col-sm-2 col-md-2 col-lg-2">
+                <%= localize like.updated_at, format: :short %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-2">
+    <%#= paginate @likes %>
+  </div>
+</div>
