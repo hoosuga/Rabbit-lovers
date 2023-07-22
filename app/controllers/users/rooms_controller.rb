@@ -26,7 +26,8 @@ class Users::RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @comment = Comment.new
+    @comments = @room.comments.page(params[:page]).per(10)
+    @comment = current_user.comments.new
   end
 
   def edit
