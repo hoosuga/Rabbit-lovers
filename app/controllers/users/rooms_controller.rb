@@ -1,4 +1,5 @@
 class Users::RoomsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   def index
     @category_ids = params[:category_ids]&.select(&:present?)
     @category_name = Category.where(id: @category_ids).pluck(:name)
@@ -11,10 +12,8 @@ class Users::RoomsController < ApplicationController
     else
       @rooms = Room.all.where(status: 0).page(params[:page]).per(10)
     end
-
-    #新規設立
-    @room = Room.new
     
+    @room = Room.new #新規設立
   end
   
   def create
@@ -35,8 +34,6 @@ class Users::RoomsController < ApplicationController
   end
   
   def update
-    @room = Room.find(params[:id])
-    @room.user_id = current_user.id
     @room.update(room_params)
     redirect_to room_path(id: @room.id)
   end
@@ -52,6 +49,13 @@ class Users::RoomsController < ApplicationController
   
   def room_params
     params.require(:room).permit(:title, :body, :status, category_ids: [])
+  end
+  
+  def is_matching_login_user
+    @room = Room.find(params[:id])
+    unless @room.user.id == current_user.id
+      redirect_to room_path(id: @room.id)
+    end
   end
   
 end

@@ -1,4 +1,5 @@
 class Users::UsersController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   def index
     if params[:search].present?
       @users = User.search(params)
@@ -13,13 +14,11 @@ class Users::UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
     @user = User.find(params[:id])
   end
   
   def update
     @user = User.find(params[:id])
-    @user = current_user
     @user.update(user_params)
     redirect_to user_path(id: @user.id)
   end
@@ -36,6 +35,13 @@ class Users::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:profile_image, :name, :email, :introduction, :is_deleted)  
+  end
+
+  def is_matching_login_user
+    @user = User.find(params[:id])
+    unless @user.id = current_user.id
+       redirect_to user_path(id: @user.id)
+    end
   end
 
 end

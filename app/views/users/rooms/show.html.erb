@@ -80,7 +80,7 @@
             </td>
             <td class="col-sm-2 col-md-2 col-lg-2">
               <div class="text-right">
-                <% if @comment.user == current_user %>
+                <% if comment.user == current_user %>
                   <%= link_to "削除する", room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4' %>
                 <% end %>
               </div>
