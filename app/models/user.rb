@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_rooms, through: :likes, source: :room
   
+  validates :name, presence: true
+  validates :email, presence: true
+  
   def self.search(params)
     User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
   end
