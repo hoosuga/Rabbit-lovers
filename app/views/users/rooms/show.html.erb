@@ -78,7 +78,13 @@
                 <span style="text-decoration: underline;"><%= comment.user.name %></span>
               <% end %>さん
             </td>
-            <td class="col-sm-2 col-md-2 col-lg-2"></td>
+            <td class="col-sm-2 col-md-2 col-lg-2">
+              <div class="text-right">
+                <% if @comment.user == current_user %>
+                  <%= link_to "削除する", room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4' %>
+                <% end %>
+              </div>
+            </td>
           </tr>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>

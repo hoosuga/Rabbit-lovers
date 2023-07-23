@@ -2,7 +2,7 @@ class Room < ApplicationRecord
   has_many :category_rooms
   has_many :categories, through: :category_rooms
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   
   
