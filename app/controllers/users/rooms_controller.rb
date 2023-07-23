@@ -19,8 +19,13 @@ class Users::RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user_id = current_user.id
-    @room.save
-    redirect_to room_path(id: @room.id)
+    if @room.save
+      flash[:notice] = "トークルーム設立に成功しました。"
+      redirect_to room_path(id: @room.id)
+    else
+      flash.now[:alert] = "トークルーム設立に失敗しました。"
+      render :index
+    end
   end
 
   def show
@@ -34,8 +39,13 @@ class Users::RoomsController < ApplicationController
   end
   
   def update
-    @room.update(room_params)
-    redirect_to room_path(id: @room.id)
+    if @room.update(room_params)
+      flash[:notice] = "トークルームの更新に成功しました。"
+      redirect_to room_path(id: @room.id)
+    else
+      flash.now[:alert] = "トークルームの更新に失敗しました。"
+      render :edit
+    end
   end
   
   def destroy

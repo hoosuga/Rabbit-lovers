@@ -93,6 +93,16 @@
       <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">新規トークルーム設立</span></div>
     </div>
   </div>
+  <!--バリデーション設定-->
+  <% if @room.errors.any? %>
+    <%= @room.errors.count %>件のエラーが発生しました。
+    <ul>
+      <% @room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
   <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
   <div class="row pt-3 pl-5">
     <div class="col-sm-2 col-md-2 col-lg-2">
