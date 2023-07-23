@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:top, :about]
   before_action :authenticate_admin!, if: :admins_url 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  add_flash_types :success, :info, :warning, :danger
 
   protected
   

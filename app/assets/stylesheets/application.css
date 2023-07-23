@@ -14,6 +14,24 @@
  *= require_self
  */
  
+ .flash-message {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 16px 0px;
+}
+ 
+.flash-message.notice {
+  background-color: #99CCCC;
+  color: #0067C0;
+  border: solid 1px #33CCCC;
+}
+ 
+.flash-message.alert {
+  background-color: #CC6699;
+  color: #930403;
+  border: solid 1px #666699;
+}
+ 
  .link:hover {
    text-decoration: none !important;
  }
