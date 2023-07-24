@@ -95,14 +95,20 @@
   </div>
   <!--バリデーション設定-->
   <% if @room.errors.any? %>
+    <div class = "alert">
     <%= @room.errors.count %>件のエラーが発生しました。
-    <ul>
-      <% @room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @room.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-  
+  <div class="row pl-5">
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
+  </div>
   <%= form_with model: @room, url: rooms_path, method: :post do |f| %>
   <div class="row pt-3 pl-5">
     <div class="col-sm-2 col-md-2 col-lg-2">

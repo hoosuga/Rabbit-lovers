@@ -8,3 +8,26 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%Y/%m/%d %H:%M"
+  activerecord:
+    models:
+      user:
+      admin:
+      category:
+      comment:
+      room:
+    attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        encrypted_password: "パスワード"
+        introduction: "自己紹介"
+      admin:
+        email: "メールアドレス"
+        encrypted_password: "パスワード"
+      category:
+        name: "カテゴリ"
+      comment:
+        body: "コメント"
+      room:
+        title: "トークルーム名"
+        body: "本文"
