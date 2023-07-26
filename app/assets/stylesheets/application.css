@@ -41,26 +41,3 @@
    color: black;
  }
  
-.btn-login {
-  width: 10em !important;
-  height: 1em !important;
-  background-color: #00fa9a !important;
-  border-color: #00fa9a !important;
-  color: black !important;
-}
-
-.btn-login:hover, .btn-login:not(:disabled):not(.disabled):active {
-  background-color: #00cc7e !important;
-  border-color: #00cc7e !important;
-}
-
-.btn-success {
-  background-color: #00fa9a !important;
-  border-color: #00fa9a !important;
-  color: black;
-}
-
-.btn-success:hover, .btn-success:not(:disabled):not(.disabled):active {
-  background-color: #00cc7e !important;
-  border-color: #00cc7e !important;
-}

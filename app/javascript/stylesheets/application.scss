@@ -1,1 +1,51 @@
 @use '~bootstrap/scss/bootstrap';
+
+.header-navbar {
+  @media (max-width: 575px) {
+    .grid-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+#error_explanation {
+  padding-left: 30px;
+  h2 {
+    font-size: 20px;
+  }
+}
+
+.new-user-btn {
+  .btn {
+      padding: 14px 24px;
+      border: 0 none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+  }
+  
+  .btn-success {
+      background: #33FFCC;
+      color: black;
+  }
+  
+  .btn-success:hover, .btn-success:focus, 
+  .btn-success:active, .btn-success:active:focus, .btn-success:active:hover, .btn-success:active.focus,
+  .btn-success.active, .btn-success.active:focus, .btn-success.active:hover, .btn-success.active.focus,
+  .open > .dropdown-toggle.btn-success, 
+  .open > .dropdown-toggle.btn-success:hover,
+  .open > .dropdown-toggle.btn-success:focus, 
+  .open > .dropdown-toggle.btn-success.focus,
+  .btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover,
+  .btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus,
+  .btn-success.disabled.focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success.focus {
+      background: #33FF99;
+      color: black;
+  }
+  
+  .btn-success.outline {
+      border: 3px solid #33CCCC;
+      color: black;
+  }
+}
