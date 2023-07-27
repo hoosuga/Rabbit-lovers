@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">新規会員登録</span></div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5>新規会員登録</h5>
     </div>
   </div>
 </div>
@@ -43,7 +43,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)", placeholder: "パスワード(確認用)" , size: 30 %>
       </div>
     </div>
-    <div class="row pl-5">
+    <div class="row pl-5 mt-2">
       <div class="col-sm-3 col-md-3 col-lg-3"></div>
       <div class="col-sm-9 col-md-9 col-lg-9">
         <%= button_tag(type: "submit", class: "btn btn-success btn-sm rounded-pill", ) do %>新規登録<% end %>
@@ -52,15 +52,15 @@
   <% end %>
 </div>
 
-<div class="container">
+<div class="container pb-5">
   <div class="row pt-5">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">すでに登録済み or お試ししたい方</span></div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5>すでに登録済み or お試ししたい方</h5>
     </div>
   </div>
   <div class="row pt-3">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <p class="pl-5"><%= link_to "ログインページ", new_user_session_path %>　はこちらから！</p>
+      <p class="pl-5"><%= link_to "ログインページ", new_user_session_path, class: "befor-sign" %>　はこちらから！</p>
 </div>
 
 <%#= render "users/shared/links" %>

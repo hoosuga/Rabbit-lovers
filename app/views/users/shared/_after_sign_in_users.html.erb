@@ -1,8 +1,8 @@
-<li class="nav-item d-flex justify-content-end">
-  <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-secondary m-3 btn-sm rounded-pill" %>
-  <%= link_to "トークルーム", rooms_path, class: "btn btn-outline-secondary m-3 btn-sm rounded-pill" %>
-  <%= link_to "会員一覧", users_path, class: "btn btn-outline-secondary m-3 btn-sm rounded-pill" %>
-  <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-secondary m-3 btn-sm rounded-pill", method: :delete %>
+<li class="nav-item d-block d-sm-flex grid-container ml-sm-auto">
+  <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-secondary m-1 m-sm-3 btn-sm rounded-pill" %>
+  <%= link_to "トークルーム", rooms_path, class: "btn btn-outline-secondary m-1 m-sm-3 btn-sm rounded-pill" %>
+  <%= link_to "会員一覧", users_path, class: "btn btn-outline-secondary m-1 m-sm-3 btn-sm rounded-pill" %>
+  <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-secondary m-1 m-sm-3 btn-sm rounded-pill", method: :delete %>
 </li>
 <div>
   <p class="text-right mr-3">welcome, <%= current_user.name %>さん！</p>
