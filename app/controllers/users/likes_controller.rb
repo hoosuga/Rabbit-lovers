@@ -1,4 +1,5 @@
 class Users::LikesController < ApplicationController
+  before_action :authenticate_user!
   def create
     room = Room.find(params[:room_id])
     like = current_user.likes.new(room_id: room.id)
