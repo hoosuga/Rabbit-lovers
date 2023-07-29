@@ -13,7 +13,7 @@ class User < ApplicationRecord
   
   validates :name, presence: true
   validates :email, presence: true
-   validates :encrypted_password, presence: true
+  validates :encrypted_password, presence: true
   
   def self.search(params)
     User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
