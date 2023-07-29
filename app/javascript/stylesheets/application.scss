@@ -13,6 +13,24 @@ body, {
   }
 }
 
+.flash-message {
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 16px 0px;
+}
+ 
+.flash-message.notice {
+  background-color: #F0FFF0;
+  color: #008080;
+  border: solid 2px #5F9EA0;
+}
+ 
+.flash-message.alert {
+  background-color: #FFF0F5;
+  color: #930403;
+  border: solid 2px #930403;
+}
+
 h5 {
   font-size: 1.1rem;
   padding: 0.5em;
@@ -55,7 +73,7 @@ h5 {
   }
 }
 
-.new-user-btn {
+.new-create-btn {
   .btn {
       padding: 5px 100px;
       border: 0 none;
@@ -65,7 +83,7 @@ h5 {
   }
   
   .btn-success {
-      background: #A4C6FF;
+      background: #66CC99;
       color: black;
   }
   
@@ -79,12 +97,80 @@ h5 {
   .btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover,
   .btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus,
   .btn-success.disabled.focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success.focus {
-      background: #B1F9D0;
+      background: #99CC99;
       color: black;
   }
   
   .btn-success.outline {
+      border: 5px solid #009966;
+      color: black;
+  }
+}
+
+.user-login-btn {
+  .btn {
+      padding: 5px 100px;
+      border: 0 none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+  }
+  
+  .btn-primary {
+      background: #A4C6FF;
+      color: black;
+  }
+  
+  .btn-primary:hover, .btn-primary:focus, 
+  .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+  .btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+  .open > .dropdown-toggle.btn-primary, 
+  .open > .dropdown-toggle.btn-primary:hover,
+  .open > .dropdown-toggle.btn-primary:focus, 
+  .open > .dropdown-toggle.btn-primary.focus,
+  .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+  .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+  .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+      background: #BAD3FF;
+      color: black;
+  }
+  
+  .btn-primary.outline {
       border: 5px solid #20B2AA;
+      color: black;
+  }
+}
+
+.guest-login-btn {
+  .btn {
+      padding: 5px 45px;
+      border: 0 none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+  }
+  
+  .btn-light {
+      background: #FFCCFF;
+      color: black;
+  }
+  
+  .btn-light:hover, .btn-light:focus, 
+  .btn-light:active, .btn-light:active:focus, .btn-light:active:hover, .btn-light:active.focus,
+  .btn-light.active, .btn-light.active:focus, .btn-light.active:hover, .btn-light.active.focus,
+  .open > .dropdown-toggle.btn-light, 
+  .open > .dropdown-toggle.btn-light:hover,
+  .open > .dropdown-toggle.btn-light:focus, 
+  .open > .dropdown-toggle.btn-light.focus,
+  .btn-light.disabled:hover, .btn-light[disabled]:hover, fieldset[disabled] .btn-light:hover,
+  .btn-light.disabled:focus, .btn-light[disabled]:focus, fieldset[disabled] .btn-light:focus,
+  .btn-light.disabled.focus, .btn-light[disabled].focus, fieldset[disabled] .btn-light.focus {
+      background: #FFDDFF;
+      color: black;
+  }
+  
+  .btn-light.outline {
+      border: 5px solid #FF99CC;
       color: black;
   }
 }

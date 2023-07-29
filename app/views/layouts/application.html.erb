@@ -42,15 +42,9 @@
       <div class="container mb-3 mt-2 ">
         <div class="row">
           <div class="pl-3">
-            <%# flash.each do |message_type, message| %>
-              <!--<div class="flash-message <%#= message_type %>"><%#= message %></div>-->
-            <%# end %>
-            <div class="text-success">
-              <%= flash[:notice] %>
-            </div>
-            <div class="text-danger">
-              <%= flash[:alret] %>
-            </div>
+            <% flash.each do |message_type, message| %>
+              <div class="flash-message <%= message_type %>"><%= message %></div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable #:validatable
+         :recoverable, :rememberable, :validatable
          
   has_one_attached :profile_image
          
@@ -11,9 +11,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_rooms, through: :likes, source: :room
   
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :encrypted_password, presence: true
+  validates :name, presence: true, length: { maximum: 30 }
+  validates :email, presence: true, uniqueness: true, length: { maximum: 80 }
+  validates :encrypted_password, presence: true, length: { maximum: 6 }
   
   def self.search(params)
     User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")

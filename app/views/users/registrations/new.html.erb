@@ -5,47 +5,47 @@
     </div>
   </div>
 </div>
-<div class="container pt-3 new-user-btn">
+<div class="container pt-3 new-create-btn">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
     <div class="row pb-2 pl-5">
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-md-4 col-lg-3">
         <label>名前</label>
       </div>
-      <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="col-md-8 col-lg-9">
         <%= f.text_field :name, autofocus: true, autocomplete: "名前", placeholder: "名前", size: 30 %>
       </div>
     </div>
     <div class="row pb-2 pl-5">
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-md-4 col-lg-3">
         <label>メールアドレス</label>
       </div>
-      <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="col-md-8 col-lg-9">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" , size: 30 %>
       </div>
     </div>
     <div class="row pb-2 pl-5">
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-md-4 col-lg-3">
         <label>パスワード
         <% if @minimum_password_length %>
           (<%= @minimum_password_length %>文字以上)
         <% end %></label>
       </div>
-      <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="col-md-8 col-lg-9">
         <%= f.password_field :password, autofocus: true, autocomplete: "パスワード(6文字以上)", placeholder: "パスワード(6文字以上)", size: 30 %>
       </div>
     </div>
     <div class="row pb-2 pl-5">
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-md-4 col-lg-3">
         <label>パスワード(確認用)</label>
       </div>
-      <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="col-md-8 col-lg-9">
         <%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)", placeholder: "パスワード(確認用)" , size: 30 %>
       </div>
     </div>
     <div class="row pl-5 mt-2">
-      <div class="col-sm-3 col-md-3 col-lg-3"></div>
-      <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="col-md-4 col-lg-3"></div>
+      <div class="col-md-8 col-lg-9">
         <%= button_tag(type: "submit", class: "btn btn-success btn-sm rounded-pill", ) do %>新規登録<% end %>
       </div>
     </div>

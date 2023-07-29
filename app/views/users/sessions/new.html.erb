@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">ログイン</span></div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5>ログイン</h5>
     </div>
   </div>
 </div>
@@ -9,37 +9,31 @@
 <div class="container pt-3">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="row pb-2 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
+      <div class="col-md-3 col-lg-2">
         <label>メールアドレス</label>
       </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
+      <div class="col-md-9 col-lg-10">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" , size: 30 %>
       </div>
     </div>
     <div class="row pb-2 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
+      <div class="col-md-3 col-lg-2">
         <label>パスワード</label>
       </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="col-md-9 col-lg-10">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" , size: 30 %>
       </div>
     </div>
-    <%# if devise_mapping.rememberable? %>
-      <!--<div class="field">
-        <%#= f.check_box :remember_me %>
-        <%#= f.label :remember_me %>
-      </div>-->
-    <%# end %>
     <div class="row pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
+      <div class="col-md-3 col-lg-2"></div>
+      <div class="col-md-9 col-lg-10 user-login-btn">
         <%= button_tag(type: "submit", class: "btn btn-primary btn-sm rounded-pill", ) do %>ログイン<% end %>
       </div>
     </div>
     <div class="row pl-5 pt-3">
-      <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= link_to 'ゲストユーザーログイン', users_guest_sign_in_path, method: :post, class: "btn btn-primary btn-sm rounded-pill" %>
+      <div class="col-md-3 col-lg-2"></div>
+      <div class="col-md-9 col-lg-10 guest-login-btn">
+        <%= link_to 'ゲストユーザーログイン', users_guest_sign_in_path, method: :post, class: "btn btn-light btn-sm rounded-pill" %>
       </div>
     </div>
   <% end %>
@@ -47,13 +41,13 @@
 
 <div class="container">
   <div class="row pt-5">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">会員登録がお済ではない方</span></div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5>会員登録がお済ではない方</h5>
     </div>
   </div>
   <div class="row pt-3">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <p class="pl-5"><%= link_to "新規会員登録ページ", new_user_registration_path %>　はこちらから！</p>
+      <p class="pl-5"><%= link_to "新規会員登録ページ", new_user_registration_path, class: "befor-sign" %>　はこちらから！</p>
 </div>
 
 <%#= render "users/shared/links" %>
