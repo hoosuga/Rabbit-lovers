@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :liked_rooms, through: :likes, source: :room
   
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true
   
   def self.search(params)
