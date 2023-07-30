@@ -24,6 +24,7 @@ ja:
       admin:
         email: "メールアドレス"
         encrypted_password: "パスワード"
+        password: "test"
       category:
         name: "カテゴリ"
       comment:
