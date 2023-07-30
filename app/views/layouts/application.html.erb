@@ -27,6 +27,7 @@
               <ul class="nav navbar-nav navbar-right ml-auto header-navbar">
                 <% if user_signed_in? %>
                   <li class="nav-item d-block d-sm-flex grid-container ml-sm-auto"><%= render 'users/shared/after_sign_in_users' %></li>
+                  <div><p class="text-right mr-3">welcome, <%= current_user.name %>さん！</p></div>
                 <% elsif admin_signed_in? %>
                   <li class="nav-item d-flex justify-content-end"><%= render 'admins/shared/after_sign_in_admins' %></li>
                 <% else %>
