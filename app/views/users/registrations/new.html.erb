@@ -10,7 +10,7 @@
   <%= render "users/shared/error_messages", resource: resource %>
     <div class="row pb-2 pl-5">
       <div class="col-md-4 col-lg-3">
-        <label>名前</label>
+        <%= f.label :name %>
       </div>
       <div class="col-md-8 col-lg-9">
         <%= f.text_field :name, autofocus: true, autocomplete: "名前", placeholder: "名前", size: 30 %>
@@ -18,7 +18,7 @@
     </div>
     <div class="row pb-2 pl-5">
       <div class="col-md-4 col-lg-3">
-        <label>メールアドレス</label>
+        <%= f.label :email %>
       </div>
       <div class="col-md-8 col-lg-9">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" , size: 30 %>
@@ -26,10 +26,10 @@
     </div>
     <div class="row pb-2 pl-5">
       <div class="col-md-4 col-lg-3">
-        <label>パスワード
+        <%= f.label :password %>
         <% if @minimum_password_length %>
           (<%= @minimum_password_length %>文字以上)
-        <% end %></label>
+        <% end %>
       </div>
       <div class="col-md-8 col-lg-9">
         <%= f.password_field :password, autofocus: true, autocomplete: "パスワード(6文字以上)", placeholder: "パスワード(6文字以上)", size: 30 %>
@@ -37,7 +37,7 @@
     </div>
     <div class="row pb-2 pl-5">
       <div class="col-md-4 col-lg-3">
-        <label>パスワード(確認用)</label>
+        <%= f.label :password_confirmation %>
       </div>
       <div class="col-md-8 col-lg-9">
         <%= f.password_field :password_confirmation, autocomplete: "パスワード(確認用)", placeholder: "パスワード(確認用)" , size: 30 %>
