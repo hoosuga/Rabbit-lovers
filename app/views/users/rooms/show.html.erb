@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <li class="d-flex justify-content-end">
+      <li class="d-flex d-block d-sm-flex grid-container flex-wrap justify-content-end">
         <span class="pr-3">ルーム：<%= @room.status_i18n %></span>
         <span class="pr-3">カテゴリ：<%= Category.where(id: @room.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %></span>
         <span>
@@ -25,9 +25,9 @@
   </div>
 </div>
 <div class="container pt-2">
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <table frame="box" rules="none">
+  <div class="row room-create">
+    <div class="col-sm-12 col-md-12 col-lg-12 mobile-scroll mb-4">
+      <table border=1 frame="void"rules="none">
         <tbody>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag @room.user.get_profile_image %></td>
@@ -61,9 +61,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="col-sm-12 col-md-12 col-lg-12 mobile-scroll">
       <% @room.comments.each do |comment| %>
-      <table frame="box" rules="none">
+      <table class="mb-2" border=1 frame="void"rules="none">
         <tbody>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
@@ -94,15 +94,15 @@
     <%= paginate @comments %>
   </div>
 </div>
-<div class="container pt-3">
+<div class="container pt-3 pb-5">
   <%= form_with model: [@room, @comment], method: :post do |f| %>
-  <div class="row pt-3 pl-5">
-    <div class="col-sm-10 col-md-10 col-lg-10">
-      <%= f.text_area :body, placeholder: "コメントを入力" , class: 'form-control',size: "2x3" %>
+  <div class="row pt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= f.text_area :body, placeholder: "コメントを入力" , class: 'form-control' %>
     </div>
   </div>
-  <div class="row pt-3 pl-5">
-    <div class="col-sm-10 col-md-10 col-lg-10">
+  <div class="row pt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12 new-create-btn">
       <%= f.submit "コメントする！", class: "btn btn-success" %>
     </div>
   </div>

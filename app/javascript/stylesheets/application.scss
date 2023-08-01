@@ -1,5 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body, {
   font-family:"M PLUS 1p", "Helvetica Neue", "Hiragino Kaku Gothic ProN", meiryo, sans-serif;
 }
@@ -173,4 +179,30 @@ h5 {
       border: 5px solid #FF99CC;
       color: black;
   }
+}
+
+.sideber {
+  width: 20%; 
+  margin: 0px;
+  padding-top: 18px;
+  position: sticky
+}
+
+.rooms-index {
+  width: 80%; 
+  padding: 0px;
+  position: sticky
+}
+
+@media only screen and (max-width: 500px) {
+  .mobile-scroll {
+    white-space: nowrap; 
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.room-create {
+  border: 2px solid #B0E0E6;
+  border-radius: 10px;
 }
