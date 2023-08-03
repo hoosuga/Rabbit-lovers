@@ -17,6 +17,7 @@ class Admins::RoomsController < ApplicationController
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
+    flash[:notice] = "トークルームを削除しました。"
     redirect_to admins_rooms_path
   end
 end
