@@ -29,6 +29,8 @@ ja:
       admin:
         email: メールアドレス
         password: パスワード
+      comment:
+        body: コメント
     models:
       user: 会員情報
   devise:

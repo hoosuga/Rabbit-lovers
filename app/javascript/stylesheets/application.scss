@@ -8,6 +8,8 @@
 
 body, {
   font-family:"M PLUS 1p", "Helvetica Neue", "Hiragino Kaku Gothic ProN", meiryo, sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .header-navbar {
@@ -200,6 +202,14 @@ h5 {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+}
+
+a {
+  color: #4aa6a4;
+}
+
+.marker {
+      background: linear-gradient(transparent 75%, #f1ee72bd 75%);
 }
 
 .room-create {

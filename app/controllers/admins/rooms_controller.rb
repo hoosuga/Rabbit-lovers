@@ -11,6 +11,7 @@ class Admins::RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @comments = @room.comments.page(params[:page]).per(10)
   end
   
   def destroy

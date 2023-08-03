@@ -1,11 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2">
-        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">
-          <%= @room.title %>　のルーム
-        </span>
-      </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5><%= @room.title %>のルーム</h5>
     </div>
   </div>
   <div class="row">
@@ -16,17 +12,19 @@
       </li>
     </div>
   </div>
-  <div class="row">
+  <div class="row pr-2">
     <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
-      <span><%= link_to "このルームを削除する", admins_room_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4" %></span>
+      <%= link_to admins_room_path, method: :delete, data: { confirm: '本当にトークルームごと削除しますか？' } do %>
+        <i class="fas fa-trash-alt" style="color: #666e7a;"></i>
+      <% end %>
     </div>
   </div>
 </div>
 
 <div class="container pt-2">
-  <div class="row">
+  <div class="row pt-1 room-create mobile-scroll">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <table frame="box" rules="none">
+      <table border=1 frame="void" rules="none">
         <tbody>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag @room.user.get_profile_image %></td>
@@ -39,10 +37,50 @@
           </tr>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>
-            <td class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= @room.body %></td>
+            <td class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= simple_format(@room.body) %></td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <li class="d-flex justify-content-end">
+        <span class="pr-3">コメント件数：<%= @room.comments.count %></span>
+      </li>
+    </div>
+  </div>
+  <div class="row mobile-scroll">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <% @room.comments.each do |comment| %>
+      <table class="mb-2" border=1 frame="void" rules="none">
+        <tbody>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
+            <td class="col-sm-9 col-md-9 col-lg-9">
+              <%= localize comment.created_at, format: :short %></br>
+              <%= link_to user_path(comment.user.id) do %>
+                <span style="text-decoration: underline;"><%= comment.user.name %></span>
+              <% end %>さん
+            </td>
+            <td class="col-sm-2 col-md-2 col-lg-2">
+              <div class="text-right">
+                <%= link_to room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                  <i class="fas fa-trash-alt" style="color: #666e7a;"></i>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>
+            <td colspan="2" class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= simple_format(comment.body) %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-2">
+    <%= paginate @comments %>
   </div>
 </div>

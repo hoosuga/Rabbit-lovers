@@ -12,11 +12,11 @@
         <span>
           <% if @room.liked_by?(current_user) %>
             <%= link_to room_like_path(@room), method: :delete do %>
-              ♥<%= @room.likes.count %> いいね
+              <i class="fa-solid fa-heart" style="color: #6caca0;"> <%= @room.likes.count %> いいね</i>
             <% end %>
           <% else %>
             <%= link_to room_likes_path(@room), method: :post do %>
-              ♡<%= @room.likes.count %> いいね
+              <i class="fa-regular fa-heart" style="color: #6caca0;"> <%= @room.likes.count %> いいね</i>
             <% end %>
           <% end %>
         </span>
@@ -25,9 +25,9 @@
   </div>
 </div>
 <div class="container pt-2">
-  <div class="row room-create">
-    <div class="col-sm-12 col-md-12 col-lg-12 mobile-scroll mb-4">
-      <table border=1 frame="void"rules="none">
+  <div class="row pt-1 room-create mobile-scroll">
+    <div class="col-sm-12 col-md-12 col-lg-12 pb-1">
+      <table border=1 frame="void" rules="none">
         <tbody>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag @room.user.get_profile_image %></td>
@@ -37,33 +37,35 @@
                 <span style="text-decoration: underline;"><%= @room.user.name %></span>
               <% end %>さん
             </td>
-            <td class="col-sm-2 col-md-2 col-lg-2">
-              <div class="text-right">
+            <td class="col-sm-1 col-md-1 col-lg-1 top">
+              <div style="text-align: right;">
                 <% if @room.user == current_user %>
-                  <%= link_to "編集する", edit_room_path(@room.id), class: 'btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4' %>
+                  <%= link_to edit_room_path(@room.id) do %>
+                    <i class="fas fa-edit" style="color: #666e7a;"></i>
+                  <% end %>
                 <% end %>
               </div>
             </td>
           </tr>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>
-            <td colspan="2" class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= @room.body %></td>
+            <td colspan="2" class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= simple_format(@room.body) %></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="row">
+  <div class="row pt-2">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <li class="d-flex justify-content-end">
         <span class="pr-3">コメント件数：<%= @room.comments.count %></span>
       </li>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 mobile-scroll">
+  <div class="row mobile-scroll">
+    <div class="col-sm-12 col-md-12 col-lg-12">
       <% @room.comments.each do |comment| %>
-      <table class="mb-2" border=1 frame="void"rules="none">
+      <table class="mb-2" border=1 frame="void" rules="none">
         <tbody>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
@@ -76,14 +78,16 @@
             <td class="col-sm-2 col-md-2 col-lg-2">
               <div class="text-right">
                 <% if comment.user == current_user %>
-                  <%= link_to "削除する", room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4' %>
+                  <%= link_to room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                    <i class="fas fa-trash-alt" style="color: #666e7a;"></i>
+                  <% end %>
                 <% end %>
               </div>
             </td>
           </tr>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pb-2"></td>
-            <td colspan="2" class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= comment.body %></td>
+            <td colspan="2" class="col-sm-11 col-md-11 col-lg-11 pb-2"><%= simple_format(comment.body) %></td>
           </tr>
         </tbody>
       </table>
@@ -95,6 +99,16 @@
   </div>
 </div>
 <div class="container pt-3 pb-5">
+  <% if @comment.errors.any? %>
+    <div class = "alert">
+      <%= @comment.errors.count %>件のエラーが発生しました。
+        <ul>
+          <% @comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
   <%= form_with model: [@room, @comment], method: :post do |f| %>
   <div class="row pt-3">
     <div class="col-sm-12 col-md-12 col-lg-12">
