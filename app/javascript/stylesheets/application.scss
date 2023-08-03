@@ -183,21 +183,8 @@ h5 {
   }
 }
 
-.sideber {
-  width: 20%; 
-  margin: 0px;
-  padding-top: 18px;
-  position: sticky
-}
-
-.rooms-index {
-  width: 80%; 
-  padding: 0px;
-  position: sticky
-}
-
-@media only screen and (max-width: 500px) {
-  .mobile-scroll {
+@media only screen and (max-width: 700px) {
+  .scroll {
     white-space: nowrap; 
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

@@ -30,7 +30,7 @@
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag @room.user.get_profile_image %></td>
             <td class="col-sm-11 col-md-11 col-lg-11">
               <%= localize @room.updated_at, format: :short %></br>
-              <%= link_to user_path(@room.user.id) do %>
+              <%= link_to admins_user_path(@room.user.id) do %>
                 <span style="text-decoration: underline;"><%= @room.user.name %></span>
               <% end %>さん
             </td>
@@ -59,7 +59,7 @@
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
             <td class="col-sm-9 col-md-9 col-lg-9">
               <%= localize comment.created_at, format: :short %></br>
-              <%= link_to user_path(comment.user.id) do %>
+              <%= link_to admins_user_path(comment.user.id) do %>
                 <span style="text-decoration: underline;"><%= comment.user.name %></span>
               <% end %>さん
             </td>

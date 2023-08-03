@@ -100,7 +100,7 @@
 </div>
 <div class="container pt-3 pb-5">
   <% if @comment.errors.any? %>
-    <div class = "alert">
+    <div class = "alert mb-0">
       <%= @comment.errors.count %>件のエラーが発生しました。
         <ul>
           <% @comment.errors.full_messages.each do |message| %>
@@ -110,7 +110,7 @@
     </div>
   <% end %>
   <%= form_with model: [@room, @comment], method: :post do |f| %>
-  <div class="row pt-3">
+  <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <%= f.text_area :body, placeholder: "コメントを入力" , class: 'form-control' %>
     </div>

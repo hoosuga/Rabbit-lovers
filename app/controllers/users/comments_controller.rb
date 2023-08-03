@@ -2,6 +2,7 @@ class Users::CommentsController < ApplicationController
   before_action :authenticate_user!
   def create
     @room = Room.find(params[:room_id])
+    @comments = @room.comments.page(params[:page]).per(10)
     @comment = current_user.comments.new(comment_params)
     @comment.room_id = @room.id
     if @comment.save
@@ -9,7 +10,7 @@ class Users::CommentsController < ApplicationController
       redirect_to room_path(id: @room.id)
     else
       flash[:alert] = "コメントの投稿に失敗しました。コメントを入力してください。"
-      redirect_to room_path(id: @room.id)
+      render template: 'users/rooms/show'
     end
   end
   

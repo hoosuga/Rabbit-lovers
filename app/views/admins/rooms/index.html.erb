@@ -10,23 +10,24 @@
     </div>
   </div>
 </div>
-<div class="container">
+
+<div class="container mt-3">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">トークルーム一覧</span></div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5>トークルーム一覧</h5>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container pt-2 pb-5">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <table class="table">
+      <table class="table table-responsive" style="white-space: nowrap">
         <thead>
-          <th class="col-sm-1 col-md-1 col-lg-1 pl-3">ID</th>
-          <th class="col-sm-2 col-md-2 col-lg-2">設立者</th>
-          <th class="col-sm-2 col-md-2 col-lg-2">カテゴリ</th>
-          <th class="col-sm-4 col-md-4 col-lg-4">トークルーム名</th>
-          <th class="col-sm-2 col-md-2 col-lg-2">設立日</th>
+          <th class="col-1 pl-3">ID</th>
+          <th class="col-3">設立者</th>
+          <th class="col-3">カテゴリ</th>
+          <th class="col-3">トークルーム名</th>
+          <th class="col-1">設立日</th>
         </thead>
         <tbody>
           <% @rooms.each do |room| %>
@@ -42,7 +43,7 @@
               </td>
               <td>
                 <%= link_to admins_room_path(room.id) do %>
-                  <%= room.title %>
+                  <span style="text-decoration: underline;"><%= room.title %></span>
                 <% end %>
               </td>
               <td><%= localize room.created_at, format: :short %></td>
@@ -52,7 +53,7 @@
       </table>
     </div>
   </div>
-  <div class="d-flex justify-content-center p-2">
+  <div class="d-flex justify-content-center p-2 pt-3">
     <%= paginate @rooms %>
   </div>
 </div>
