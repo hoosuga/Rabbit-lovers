@@ -31,6 +31,10 @@ ja:
         password: パスワード
       comment:
         body: コメント
+      room:
+        title: トークルーム名
+        category_name: カテゴリ名
+        body: 本文
     models:
       user: 会員情報
   devise:

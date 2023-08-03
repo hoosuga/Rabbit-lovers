@@ -91,7 +91,7 @@ h5 {
   }
   
   .btn-success {
-      background: #66CC99;
+      background: #B1F9D0;
       color: black;
   }
   
@@ -105,7 +105,7 @@ h5 {
   .btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover,
   .btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus,
   .btn-success.disabled.focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success.focus {
-      background: #99CC99;
+      background: #9BF9CC;
       color: black;
   }
   
@@ -125,7 +125,7 @@ h5 {
   }
   
   .btn-primary {
-      background: #A4C6FF;
+      background: #BAD3FF;
       color: black;
   }
   
@@ -139,7 +139,7 @@ h5 {
   .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
   .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
   .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-      background: #BAD3FF;
+      background: #A4C6FF;
       color: black;
   }
   
@@ -159,7 +159,7 @@ h5 {
   }
   
   .btn-light {
-      background: #FFCCFF;
+      background: #FFDDFF;
       color: black;
   }
   
@@ -173,7 +173,7 @@ h5 {
   .btn-light.disabled:hover, .btn-light[disabled]:hover, fieldset[disabled] .btn-light:hover,
   .btn-light.disabled:focus, .btn-light[disabled]:focus, fieldset[disabled] .btn-light:focus,
   .btn-light.disabled.focus, .btn-light[disabled].focus, fieldset[disabled] .btn-light.focus {
-      background: #FFDDFF;
+      background: #FFCCFF;
       color: black;
   }
   
@@ -182,6 +182,43 @@ h5 {
       color: black;
   }
 }
+
+.search-btn {
+  .btn {
+      width: 130px;
+      hight: 35px;
+      padding: 5px 10px;
+      border: 0 none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+  }
+  
+  .btn-light {
+      background: #dee2e6;
+      color: black;
+  }
+  
+  .btn-light:hover, .btn-light:focus, 
+  .btn-light:active, .btn-light:active:focus, .btn-light:active:hover, .btn-light:active.focus,
+  .btn-light.active, .btn-light.active:focus, .btn-light.active:hover, .btn-light.active.focus,
+  .open > .dropdown-toggle.btn-light, 
+  .open > .dropdown-toggle.btn-light:hover,
+  .open > .dropdown-toggle.btn-light:focus, 
+  .open > .dropdown-toggle.btn-light.focus,
+  .btn-light.disabled:hover, .btn-light[disabled]:hover, fieldset[disabled] .btn-light:hover,
+  .btn-light.disabled:focus, .btn-light[disabled]:focus, fieldset[disabled] .btn-light:focus,
+  .btn-light.disabled.focus, .btn-light[disabled].focus, fieldset[disabled] .btn-light.focus {
+      background: #C0C0C0;
+      color: black;
+  }
+  
+  .btn-light.outline {
+      border: 5px solid #808080;
+      color: black;
+  }
+}
+
 
 @media only screen and (max-width: 700px) {
   .scroll {
