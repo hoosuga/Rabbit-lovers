@@ -1,66 +1,68 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 ">
-      <div class="d-flex justify-content-end">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="d-flex justify-content-end search-btn">
         <%= form_tag({controller:"rooms", action:"index"}, method: :get) do %>
           <%= text_field_tag :search %>
-          <%= submit_tag '検索' %>
+          <%= submit_tag 'キーワード検索', class: "btn btn-light" %>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-end search-btn">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="キーワード">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="d-flex justify-content-end search-btn">
+        <%= form_with url: rooms_path, method: :get do |f| %>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+          <span style="padding-left: 10px;">
+            <% if category.text.in?(@category_name) %>
+              <%= category.check_box(checked: true) %> 
+            <% else %>
+              <%= category.check_box(checked: false) %> 
+            <% end %>
+          <%= category.text %>
+          </span>
+        <% end %>
+        <span style="padding-left: 10px;">
+          <%= submit_tag 'カテゴリ検索', class: "btn btn-light" %>
+        </span>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-<div class="container">
+
+<div class="container pt-4">
   <div class="row">
-    <div class="sideber">
-      <%= form_with url: user_rooms_path, method: :get do |f| %>
-      <table class="table">
-        <thead>
-          <th style="text-align: center;">カテゴリ</th>
-        </thead>
-        <tbody>
-          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-            <tr>
-              <td>
-                <div class="pr-4">
-                  <% if category.text.in?(@category_name) %>
-                    <%= category.check_box(checked: true) %> 
-                  <% else %>
-                    <%= category.check_box(checked: false) %> 
-                  <% end %>
-                  <%= category.text %>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= submit_tag '検索' %>
-      <% end %>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5><%= @user.name %>のトークルーム</h5>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;"><%= @user.name %>のトークルーム</span></div>
-    </div>
-  </div>
-  <div class="row">
+  <div class="row pt-3 pb-5">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <table class="table">
-        <thead>
-          <th colspan="5" style="text-align: center;">トークルーム</th>
-        </thead>
         <tbody>
           <% @rooms.each do |room| %>
             <tr>
-              <td class="col-sm-2 col-md-2 col-lg-2 pl-5">
+              <td class="col-sm-1 col-md-1 col-lg-1">
                 <%= link_to user_path(room.user.id) do %>
                   <%= image_tag room.user.get_profile_image %>
                 <% end %>
               </td>
-              <td class="col-sm-3 col-md-3 col-lg-3">
+              <td class="col-sm-4 col-md-4 col-lg-4">
                 <%= Category.where(id: room.category_rooms.pluck(:category_id)).pluck(:name).join(" / ") %>
               </td>
               <td class="col-sm-5 col-md-5 col-lg-5">
