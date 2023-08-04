@@ -26,10 +26,10 @@
             <nav>
               <ul class="nav navbar-nav navbar-right ml-auto header-navbar">
                 <% if user_signed_in? %>
-                  <li class="nav-item d-block d-sm-flex grid-container ml-sm-auto"><%= render 'users/shared/after_sign_in_users' %></li>
+                  <li class="nav-item d-block d-md-flex grid-container ml-md-auto"><%= render 'users/shared/after_sign_in_users' %></li>
                   <div class="text-right mr-3 "><span class="marker">welcome, <%= current_user.name %>さん！</span></div>
                 <% elsif admin_signed_in? %>
-                  <li class="nav-item d-block d-sm-flex grid-container ml-sm-auto"><%= render 'admins/shared/after_sign_in_admins' %></li>
+                  <li class="nav-item d-block d-lg-flex grid-container ml-lg-auto"><%= render 'admins/shared/after_sign_in_admins' %></li>
                 <% else %>
                   <li class="nav-item d-block d-sm-flex grid-container ml-sm-auto"><%= render 'users/shared/before_sign_in' %></li>
                 <% end %>
