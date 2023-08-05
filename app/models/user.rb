@@ -12,9 +12,7 @@ class User < ApplicationRecord
   has_many :liked_rooms, through: :likes, source: :room
   
   validates :name, presence: true, length: { maximum: 30 }
-  validates :email, presence: true, uniqueness: true, length: { maximum: 80 }
-  validates :encrypted_password, presence: true, length: { maximum: 6 }
-  
+
   def self.search(params)
     User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
   end
