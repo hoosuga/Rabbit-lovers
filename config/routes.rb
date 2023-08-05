@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   namespace :admins do
     root to: 'rooms#index'
     resources :users, only: [:index, :show, :edit, :update]
-    resources :rooms, only: [:index, :show, :destroy]
+    resources :rooms, only: [:index, :show, :destroy] do
+      resources :comments, only: [:destroy], module: :rooms
+    end
     resources :comments, only: [:index, :destroy]
     resources :categories, only: [:index, :create, :edit, :update, :destroy]
   end

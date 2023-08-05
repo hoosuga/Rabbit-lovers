@@ -47,13 +47,13 @@ class Users::RoomsController < ApplicationController
   end
   
   def update
-    if @room.update(room_params)
-      flash[:notice] = "トークルームの更新に成功しました。"
-      redirect_to room_path(id: @room.id)
-    else
-      flash.now[:alert] = "トークルームの更新に失敗しました。"
-      render :edit
-    end
+      if @room.update(room_params)
+        flash[:notice] = "トークルームの更新に成功しました。"
+        redirect_to room_path(id: @room.id)
+      else
+        flash.now[:alert] = "トークルームの更新に失敗しました。"
+        render :edit
+      end
   end
   
   def destroy

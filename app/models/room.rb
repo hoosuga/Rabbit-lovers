@@ -8,7 +8,7 @@ class Room < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 400 }
   validates :status, presence: true
-  #validates :category_room, presence: true
+  validate :exist_category_room
   
   
   enum status: { open: 0, close: 2 }
@@ -20,6 +20,10 @@ class Room < ApplicationRecord
   
   def liked_by?(user)
     likes.exists?(user_id: user.id)
+  end
+  
+  def exist_category_room
+    errors[:base] << "カテゴリ名にチェックを1つ以上入れてください" if self.category_rooms.size.zero?
   end
   
 end

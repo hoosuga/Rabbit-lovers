@@ -65,7 +65,7 @@
             </td>
             <td class="col-sm-2 col-md-2 col-lg-2">
               <div class="text-right">
-                <%= link_to admins_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                <%= link_to admins_room_comment_path(@room, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
                   <i class="fas fa-trash-alt" style="color: #666e7a;"></i>削除
                 <% end %>
               </div>
