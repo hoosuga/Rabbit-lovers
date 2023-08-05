@@ -227,6 +227,41 @@ h5 {
   }
 }
 
+.update-btn {
+  .btn {
+      width: 130px;
+      hight: 35px;
+      padding: 5px 10px;
+      border: 0 none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+  }
+  
+  .btn-secondary {
+      background: #EAD9FF;
+      color: black;
+  }
+  
+  .btn-secondary:hover, .btn-secondary:focus, 
+  .btn-secondary:active, .btn-secondary:active:focus, .btn-secondary:active:hover, .btn-secondary:active.focus,
+  .btn-secondary.active, .btn-secondary.active:focus, .btn-secondary.active:hover, .btn-secondary.active.focus,
+  .open > .dropdown-toggle.btn-secondary, 
+  .open > .dropdown-toggle.btn-secondary:hover,
+  .open > .dropdown-toggle.btn-secondary:focus, 
+  .open > .dropdown-toggle.btn-secondary.focus,
+  .btn-secondary.disabled:hover, .btn-secondary[disabled]:hover, fieldset[disabled] .btn-secondary:hover,
+  .btn-secondary.disabled:focus, .btn-secondary[disabled]:focus, fieldset[disabled] .btn-secondary:focus,
+  .btn-secondary.disabled.focus, .btn-secondary[disabled].focus, fieldset[disabled] .btn-secondary.focus {
+      background: #DCC2FF;
+      color: black;
+  }
+  
+  .btn-secondary.outline {
+      border: 5px solid #D0B0FF;
+      color: black;
+  }
+}
 
 @media only screen and (max-width: 700px) {
   .scroll {

@@ -31,17 +31,17 @@
         <tbody>
           <tr>
             <td class="col-sm-1 col-md-1 col-lg-1 pt-2"><%= image_tag @room.user.get_profile_image %></td>
-            <td class="col-sm-9 col-md-9 col-lg-9">
+            <td class="col-sm-8 col-md-8 col-lg-8">
               <%= localize @room.updated_at, format: :short %></br>
               <%= link_to user_path(@room.user.id) do %>
                 <span style="text-decoration: underline;"><%= @room.user.name %></span>
               <% end %>さん
             </td>
-            <td class="col-sm-1 col-md-1 col-lg-1 top">
+            <td class="col-sm-2 col-md-2 col-lg-2 top">
               <div style="text-align: right;">
                 <% if @room.user == current_user %>
                   <%= link_to edit_room_path(@room.id) do %>
-                    <i class="fas fa-edit" style="color: #666e7a;"></i>
+                    <i class="fas fa-edit" style="color: #666e7a;"></i>編集
                   <% end %>
                 <% end %>
               </div>
@@ -79,7 +79,7 @@
               <div class="text-right">
                 <% if comment.user == current_user %>
                   <%= link_to room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-                    <i class="fas fa-trash-alt" style="color: #666e7a;"></i>
+                    <i class="fas fa-trash-alt" style="color: #666e7a;"></i>削除
                   <% end %>
                 <% end %>
               </div>
@@ -117,7 +117,7 @@
   </div>
   <div class="row pt-3">
     <div class="col-sm-12 col-md-12 col-lg-12 new-create-btn">
-      <%= f.submit "コメントする！", class: "btn btn-success" %>
+      <%= f.submit "コメントする！", class: "btn btn-success btn-sm rounded-pill" %>
     </div>
   </div>
   <% end %>

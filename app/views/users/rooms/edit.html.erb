@@ -1,20 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2">
-        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">
-          <%= @room.title %>のルーム編集
-        </span>
-      </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5><%= @room.title %>のルーム編集</h5>
     </div>
   </div>
+  <% if @room.errors.any? %>
+  <div class = "alert mb-0">
+    <%= @room.errors.count %>件のエラーが発生しました。
+      <ul>
+        <% @room.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  </div>
+  <% end %>
+  <div class="row pl-5">
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
+  </div>
 </div>
-<div class="container pt-2">
-  <div class="row">
-    <div class="col-sm-1 col-md-1 col-lg-1 pt-2">
+<div class="container pt-3">
+  <div class="row pb-2 pl-2">
+    <div class="col-sm-2 col-md-2 col-lg-2 pt-2 pl-5">
       <%= image_tag @room.user.get_profile_image %>
     </div>
-    <div class="col-sm-11 col-md-11 col-lg-11">
+    <div class="col-sm-10 col-md-10 col-lg-10 pl-lg-1 pt-2 pl-5">
       <%= localize @room.updated_at, format: :short %></br>
       <%= link_to user_path(@room.user.id) do %>
         <span style="text-decoration: underline;"><%= @room.user.name %></span>
@@ -22,21 +33,21 @@
     </div>
   </div>
 </div>
-<div class="container pt-2">
+<div class="container pt-3 pb-5">
   <%= form_with model: @room, url: room_path, method: :patch do |f| %>
-    <div class="row pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>トークルーム名</label>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-md-3 col-lg-2">
+        <%= f.label :title %>
       </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
+      <div class="col-md-9 col-lg-10">
         <%= f.text_field :title, class: 'form-control', size: "2" %>
       </div>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>カテゴリ</label>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-md-3 col-lg-2">
+        <%= f.label :category_name %>
       </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
+      <div class="col-md-9 col-lg-10">
         <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
           <%= category.label do %>
             <span class="pr-4">
@@ -47,17 +58,17 @@
         <% end %>
       </div>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>本文</label>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-md-3 col-lg-2">
+        <%= f.label :body %>
       </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
+      <div class="col-md-9 col-lg-10">
         <%= f.text_area :body, class: 'form-control',size: "2x3" %>
       </div>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-md-3 col-lg-2"></div>
+      <div class="col-md-9 col-lg-10">
         <%= f.radio_button :status, Room.statuses.key(0) %>
         <%= f.label :status, Room.statuses_i18n[:open] %>
         <span style="padding-left: 30px;">
@@ -65,13 +76,15 @@
           <%= f.label :status, Room.statuses_i18n[:close] %></span>
       </div>
     </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
-        <%= f.submit "更新する", class: "btn btn-success btn-sm rounded-pill p-1 pl-4 pr-4" %>
-      </div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
-        <%= link_to "削除する", room_path, method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4" %>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-md-3 col-lg-2"></div>
+      <div class="col-md-9 col-lg-10 update-btn">
+        <%= f.submit "更新する", class: "btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4" %>
+        <span style="padding-left: 30px;">
+          <%= link_to room_path, method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+            <i class="fas fa-trash-alt" style="color: #666e7a;"></i>削除
+          <% end %>
+        </span>
       </div>
     </div>
   <% end %>

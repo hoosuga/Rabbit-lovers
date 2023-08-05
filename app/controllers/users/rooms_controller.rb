@@ -52,7 +52,7 @@ class Users::RoomsController < ApplicationController
       redirect_to room_path(id: @room.id)
     else
       flash.now[:alert] = "トークルームの更新に失敗しました。"
-      render :show
+      render :edit
     end
   end
   
