@@ -27,11 +27,7 @@ class Users::RoomsController < ApplicationController
       @category_ids = params[:category_ids]&.select(&:present?)
       @category_name = Category.where(id: @category_ids).pluck(:name)
       @rooms = Room.all.where(status: 0).page(params[:page]).per(10)
-      if params[:room][:category_ids] == [""]
-        flash.now[:alert] = "トークルーム設立に失敗しました。カテゴリにチェックを入れてください。"
-      else
-        flash.now[:alert] = "トークルーム設立に失敗しました。"
-      end
+      flash.now[:alert] = "トークルーム設立に失敗しました。"
       render :index
     end
   end
@@ -47,13 +43,13 @@ class Users::RoomsController < ApplicationController
   end
   
   def update
-      if @room.update(room_params)
-        flash[:notice] = "トークルームの更新に成功しました。"
-        redirect_to room_path(id: @room.id)
-      else
-        flash.now[:alert] = "トークルームの更新に失敗しました。"
-        render :edit
-      end
+    if @room.update(room_params)
+      flash[:notice] = "トークルームの更新に成功しました。"
+      redirect_to room_path(id: @room.id)
+    else
+      flash.now[:alert] = "トークルームの更新に失敗しました。"
+      render :edit
+    end
   end
   
   def destroy
