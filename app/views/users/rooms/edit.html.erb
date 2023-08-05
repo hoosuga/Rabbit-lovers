@@ -5,16 +5,15 @@
     </div>
   </div>
   <% if @room.errors.any? %>
-  <div class = "alert mb-0">
-    <%= @room.errors.count %>件のエラーが発生しました。
-      <ul>
-        <% @room.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-  </div>
+    <div class = "alert mb-0">
+      <%= @room.errors.count %>件のエラーが発生しました。
+        <ul>
+          <% @room.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    </div>
   <% end %>
-  
 </div>
 <div class="container pt-3">
   <div class="row pb-2 pl-2">
