@@ -19,7 +19,7 @@
   </div>
   <div class="row pt-3">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <table class="table">
+      <table class="table table-responsive-md" style="border:none; white-space: nowrap;">
         <tbody>
           <% @users.each do |user| %>
             <tr>
@@ -32,7 +32,7 @@
                 <% end %>さん
               </td>
               <td class="col-sm-6 col-md-6 col-lg-6">
-                <%= user.introduction %>
+                <%= simple_format(user.introduction) %>
               </td>
             </tr>
           <% end %>

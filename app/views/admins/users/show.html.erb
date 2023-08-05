@@ -1,48 +1,43 @@
-<div class="container">
+<div class="container pb-5">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 p-0">
       <h5><%= @user.name %>のページ</h5>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="row pl-5 pt-2">
-    <div class="col-sm-2 col-md-2 col-lg-2">
-      <p class="font-weight-bold" style="font-size: 20px;">登録情報</p>
-    </div>
-    <div class="col-sm-9 col-md-9 col-lg-9 pr-5">
-      <%= link_to "編集する", edit_admins_user_path(@user.id), class: 'btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4' %>
+  <div class="row pl-5 pt-3">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <span class="font-weight-bold" style="font-size: 20px;">登録情報</span>
+      <span style="padding-left: 10px;">
+      <%= link_to edit_admins_user_path(@user.id) do %>
+        <i class="fas fa-edit" style="color: #666e7a;"></i>編集
+      <% end %>
+      </span>
     </div>
   </div>
-  <div class="row pl-5 pt-1">
-    <div class="col-sm-2 col-md-2 col-lg-2 pl-2">
-      <div class="d-flex justify-content-center p-2">
-        <%= image_tag @user.get_profile_image %>
-      </div>
-    </div>
-    <div class="col-sm-10 col-md-10 col-lg-10">
-      <table border="1">
+  <div class="row pl-5 pt-2 pr-5">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <table class="table-responsive-md" style="border:none; white-space: nowrap;">
         <tbody>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ID</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.id %></td>
+            <td rowspan="5" class="top col-sm-2 col-md-2 col-lg-2"><%= image_tag @user.get_profile_image %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">会員ID</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= @user.id %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">名前</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.name %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">名前</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= @user.name %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">メールアドレス</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.email %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">メールアドレス</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= @user.email %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">自己紹介</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.introduction %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">自己紹介</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= simple_format(@user.introduction) %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ステータス</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2">
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">会員ステータス</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom">
               <% if @user.is_deleted == false %>
                 <span class="font-weight-bold" style="color:#00AA00;">有効</span>
               <% else %>

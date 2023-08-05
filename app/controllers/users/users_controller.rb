@@ -1,6 +1,7 @@
 class Users::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :guest_check, only: [:edit, :update]
   def index
     if params[:search].present?
       @users = User.search(params)
@@ -47,6 +48,13 @@ class Users::UsersController < ApplicationController
     @user = User.find(params[:id])
     unless @user.id = current_user.id
        redirect_to user_path(id: @user.id)
+    end
+  end
+ 
+  def guest_check
+    if current_user == User.find(11)
+      flash[:alert] = "ゲストユーザーは編集ページにアクセスできません。会員登録が必要です。"
+      redirect_to user_path(11)
     end
   end
 
