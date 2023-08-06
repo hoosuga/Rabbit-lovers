@@ -56,6 +56,7 @@ class Users::RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.user_id = current_user.id
     @room.destroy
+    flash[:notice] = "トークルームの削除に成功しました。"
     redirect_to rooms_path
   end
   

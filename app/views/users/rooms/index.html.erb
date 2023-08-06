@@ -95,7 +95,7 @@
   <div class="row pl-5">
     <!--バリデーション設定-->
     <% if @room.errors.any? %>
-      <div class = "alert">
+      <div class = "alert m-0 pb-0">
       <%= @room.errors.count %>件のエラーが発生しました。
         <ul>
           <% @room.errors.full_messages.each do |message| %>

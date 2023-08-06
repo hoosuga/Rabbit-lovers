@@ -22,13 +22,19 @@ class Admins::CategoriesController < ApplicationController
   
   def update
     @category = Category.find(params[:id])
-    @category.update(category_params)
-    redirect_to admins_categories_path
+    if @category.update(category_params)
+      flash[:notice] = "カテゴリ名の更新に成功しました。"
+      redirect_to admins_categories_path
+    else
+      flash.now[:alert] = "カテゴリ名の更新に失敗しました。"
+      render :edit
+    end
   end
   
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
+    flash[:notice] = "カテゴリ名の削除に成功しました。"
     redirect_to admins_categories_path
   end
   
