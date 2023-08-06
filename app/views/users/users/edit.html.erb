@@ -1,57 +1,64 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2">
-        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">
-          <%= @user.name %>さんの会員情報編集
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5><%= @user.name %>さんの会員情報編集</h5>
+    </div>
+  </div>
+  <% if @user.errors.any? %>
+    <div class = "alert mb-0">
+      <%= @user.errors.count %>件のエラーが発生しました。
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+</div>
+<div class="container pt-3 pb-5">
+  <%= form_with model: @user, url: user_path, method: :patch do |f| %>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-sm-4 col-md-3 col-lg-2">
+        <%= f.label :profile_image %>
+      </div>
+      <div class="col-sm-8 col-md-9 col-lg-10">
+          <%= f.file_field :profile_image %>
+      </div>
+    </div>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-sm-4 col-md-3 col-lg-2">
+        <label>名前</label>
+      </div>
+      <div class="col-sm-8 col-md-9 col-lg-10">
+        <%= f.text_field :name, class: 'form-control',size: "2" %>
+      </div>
+    </div>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-sm-4 col-md-3 col-lg-2">
+        <label>メールアドレス</label>
+      </div>
+      <div class="col-sm-8 col-md-9 col-lg-10">
+        <%= f.text_field :email, class: 'form-control',size: "2" %>
+      </div>
+    </div>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-sm-4 col-md-3 col-lg-2">
+        <label>自己紹介</label>
+      </div>
+      <div class="col-sm-8 col-md-9 col-lg-10">
+        <%= f.text_area :introduction, class: 'form-control',size: "2x3" %>
+      </div>
+    </div>
+    <div class="row pb-2 pl-5 pr-5">
+      <div class="col-sm-4 col-md-3 col-lg-2"></div>
+      <div class="col-sm-8 col-md-9 col-lg-10 update-btn">
+        <%= f.submit "更新する", class: "btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4" %>
+        <span style="padding-left: 30px;">
+          <%= link_to users_withdraw_path, method: :patch, data: { confirm: '本当に退会しますか？' } do %>
+            <i class="fas fa-user-times" style="color: #666e7a;"></i> 退会する
+          <% end %>
         </span>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="container pt-2">
-  <%= form_with model: @user, url: user_path, method: :patch do |f| %>
-    <div class="row pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>アイコン画像</label>
-      </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.file_field :profile_image %>
-      </div>
-    </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>名前</label>
-      </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.text_field :name %>
-      </div>
-    </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>メールアドレス</label>
-      </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.text_field :email %>
-      </div>
-    </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>自己紹介</label>
-      </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
-        <%= f.text_area :introduction %>
-      </div>
-    </div>
-    <div class="row pt-3 pl-5">
-      <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
-        <%= f.submit "更新する", class: "btn btn-success btn-sm rounded-pill p-1 pl-4 pr-4" %>
-      </div>
-      <% end %>
-      <div class="col-sm-7 col-md-7 col-lg-7">
-        <%= link_to '　退会する　', users_withdraw_path, method: :patch, data: { confirm: '本当に退会しますか？' }, class:'btn btn-danger' %>
-      </div>
-   </div>
+  <% end %>
 </div>

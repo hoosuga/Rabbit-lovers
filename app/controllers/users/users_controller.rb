@@ -26,7 +26,7 @@ class Users::UsersController < ApplicationController
       redirect_to user_path(id: @user.id)
     else
       flash.now[:alert] = "マイページ更新に失敗しました。"
-      render :show
+      render :edit
     end
   end
   
