@@ -1,48 +1,58 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="d-flex justify-content-end search-btn">
-        <%= form_tag({controller:"rooms", action:"index"}, method: :get) do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag 'キーワード検索', class: "btn btn-light" %>
-        <% end %>
-      </div>
-      <div class="d-flex justify-content-end search-btn">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="キーワード">
-            <div class="input-group-append">
-              <button class="btn btn-secondary" type="button">
-                <i class="fa fa-search"></i>
-              </button>
+  <%= form_with(scope: nil, controller:"rooms", action:"index", method: :get) do |f| %>
+    <div class="row pt-3">
+      <div class="col-sm-3 col-md-6 col-lg-8"></div>
+        <div class="col-sm-9 col-md-6 col-lg-4">
+          <div class="d-flex justify-content-end">
+            <div class="input-group">
+              <%= f.text_field :search, placeholder: "キーワード", class: "form-control" %>
+              <div class="input-group-append">
+                <%= f.button class: "btn btn-secondary" do %>
+                  <i class="fa fa-search"></i>検索
+                <% end %>
+              </div>
             </div>
+          </div>
         </div>
-      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <div class="container pt-3">
+  <%= form_with url: user_rooms_path(user_id: @user), method: :get do |f| %>
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="d-flex justify-content-end search-btn">
-        <%= form_with url: rooms_path, method: :get do |f| %>
+    <div class="col-sm-3 col-md-6 col-lg-8"></div>
+    <div class="col-sm-9 col-md-6 col-lg-4">
+      <div class="d-flex justify-content-end">
+        <div style="flex-wrap: nowrap;">
         <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-          <span style="padding-left: 10px;">
+          <span style="padding-left: 15px; padding-top: 6px;">
+            <label class="mb-0" style="flex-wrap: nowrap;">
             <% if category.text.in?(@category_name) %>
               <%= category.check_box(checked: true) %> 
             <% else %>
               <%= category.check_box(checked: false) %> 
             <% end %>
           <%= category.text %>
+          </label>
           </span>
         <% end %>
-        <span style="padding-left: 10px;">
-          <%= submit_tag 'カテゴリ検索', class: "btn btn-light" %>
-        </span>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-end">
+        <div style="padding-left: 10px;">
+          <%= f.button class: "btn btn-secondary" do %>
+            <i class="fa fa-search"></i>カテゴリ検索
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
 
 <div class="container pt-4 pb-5">
