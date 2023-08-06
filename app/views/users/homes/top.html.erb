@@ -1,47 +1,31 @@
 <div class="container">
-  <div class="row pt-5">
-    <div class="col-sm-12 col-md-12 col-lg-12 pl-5">
-      <table align="center">
-        <tbody>
-          <tr>
-            <td><%= image_tag '/assets/top-side.jpg', :size =>'150x100' %></td>
-            <td>Rabbit loversは</br>
-                うさぎとうさぎが好きな人の幸せの輪を広げる</br>
-                コミュニティサイトです。
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="row pt-5 pl-5 pr-5">
+    <div class="col-md-1 col-lg-2"></div>
+    <div class="col-md-3 col-lg-2">
+      <%= image_tag '/assets/top-side.jpg', :size =>'150x100' %>
+    </div>
+    <div class="col-md-8 col-lg-8 pl-3 pt-3">
+      Rabbit loversは</br>
+      うさぎとうさぎが好きな人の幸せの輪を広げる</br>
+      コミュニティサイトです。
     </div>
   </div>
 </div>
 <div class="container pb-5">
   <div class="row pt-3">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="d-flex justify-content-center p-2">
-        <%= link_to new_user_session_path do %>
-          <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
-            ログイン
-          </span>
-        <% end %>
+      <div class="d-flex justify-content-center p-2 user-login-btn">
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-sm rounded-pill" %>
       </div>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="d-flex justify-content-center p-2">
-        <%= link_to new_user_session_path do %>
-          <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
-            ゲストユーザーログイン
-          </span>
-        <% end %>
+      <div class="d-flex justify-content-center p-2 guest-login-btn">
+        <%= link_to "ゲストユーザーログイン", new_user_session_path, class: "btn btn-light btn-sm rounded-pill" %>
       </div>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="d-flex justify-content-center p-2">
-        <%= link_to new_user_registration_path do %>
-          <span class="rounded-pill p-1 pl-5 pr-5" style="background-color:#FF9872; color: black;">
-            新規登録
-          </span>
-        <% end %>
+      <div class="d-flex justify-content-center p-2 new-create-btn">
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success btn-sm rounded-pill" %>
       </div>
     </div>
   </div>
