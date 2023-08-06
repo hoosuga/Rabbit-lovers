@@ -1,48 +1,70 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2"><span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">カテゴリ一覧・追加</span></div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5>カテゴリ一覧・追加</h5>
     </div>
   </div>
-</div>
-<div class="container">
+  <div class="row pl-5">
+    <!--バリデーション設定-->
+    <% if @category.errors.any? %>
+      <div class = "alert">
+      <%= @category.errors.count %>件のエラーが発生しました。
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
   <%= form_with model: @category, url: admins_categories_path, method: :post do |f| %>
-  <div class="row pt-3 pl-5">
-    <div class="col-sm-2 col-md-2 col-lg-2">
-      <label>カテゴリ名</label>
+  <div class="row pt-3 pl-5 pr-5">
+    <div class="col-sm-4 col-md-3 col-lg-2">
+      <%= f.label :name %>
     </div>
-    <div class="col-sm-3 col-md-3 col-lg-3">
+    <div class="col-sm-8 col-md-6 col-lg-4">
       <%= f.text_field :name, placeholder:"カテゴリ名", class: 'form-control' %>
     </div>
-    <div class="col-sm-7 col-md-7 col-lg-7">
-      <%= f.submit "新規登録", class: "btn btn-success" %>
+    <div class="col-sm-0 col-lg-6"></div>
+  </div>
+  <div class="row pt-3 pl-5 pr-5">
+    <div class="col-sm-4 col-md-3 col-lg-2"></div>
+    <div class="col-sm-8 col-md-9 col-lg-10 new-create-btn">
+      <%= f.submit "新規登録", class: "btn btn-success btn-sm rounded-pill" %>
     </div>
   </div>
   <% end %>
 </div>
-<div class="container pt-5">
-  <div class="row">
-    <div class="col-sm-5 col-md-5 col-lg-5">
-      <table class="table">
+<div class="container pt-5 pb-5">
+  <div class="row pl-5 pr-5">
+    <div class="col-sm-10 col-md-7 col-lg-5">
+      <table class="table table-responsive-md" style="border:none; white-space: nowrap;">
         <thead>
           <th colspan="2" style="text-align: center;">カテゴリ</th>
         </thead>
         <tbody>
           <% @categories.each do |category| %>
             <tr>
-              <td class="col-sm-3 col-md-3 col-lg-3 pl-5">
+              <td class="col-sm-4 col-md-4 col-lg-4">
                 <%= category.name %>
               </td>
-              <td class="col-sm-2 col-md-2 col-lg-2 pl-5">
-                <%= link_to "　編集する　", edit_admins_category_path(category.id), class: 'btn btn-success' %>
+              <td class="col-sm-1 col-md-1 col-lg-1">
+                <%= link_to edit_admins_category_path(category.id) do %>
+                  <i class="fas fa-edit" style="color: #666e7a;"></i>編集
+                <% end %>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
+    <div class="col-sm-2 col-md-5 col-lg-7"></div>
   </div>
-  <div class="d-flex justify-content-center p-2">
-    <%= paginate @categories %>
+  <div class="row pl-5 pr-5">
+    <div class="col-sm-10 col-md-7 col-lg-5">
+      <div class="d-flex justify-content-center p-2">
+        <%= paginate @categories %>
+      </div>
+    </div>
   </div>
 </div>

@@ -36,6 +36,8 @@ ja:
         title: トークルーム名
         category_name: カテゴリ名
         body: 本文
+      category:
+        name: カテゴリ名
     models:
       user: 会員情報
   devise:

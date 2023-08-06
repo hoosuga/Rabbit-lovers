@@ -6,8 +6,14 @@ class Admins::CategoriesController < ApplicationController
   
   def create
     @category = Category.new(category_params)
-    @category.save
-    redirect_to admins_categories_path
+    if @category.save
+      flash[:notice] = "カテゴリ名の登録に成功しました。"
+      redirect_to admins_categories_path
+    else
+      @categories = Category.page(params[:page]).per(10)
+      flash.now[:alert] = "カテゴリ名の登録に失敗しました。"
+      render :index
+    end
   end
 
   def edit
