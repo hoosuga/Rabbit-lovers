@@ -27,7 +27,7 @@
     </div>
     <div class="row pb-2 pl-5 pr-5">
       <div class="col-sm-4 col-md-3 col-lg-2">
-        <label>名前</label>
+        <%= f.label :name %>
       </div>
       <div class="col-sm-8 col-md-9 col-lg-10">
         <%= f.text_field :name, class: 'form-control',size: "2" %>
@@ -35,7 +35,7 @@
     </div>
     <div class="row pb-2 pl-5 pr-5">
       <div class="col-sm-4 col-md-3 col-lg-2">
-        <label>メールアドレス</label>
+        <%= f.label :email %>
       </div>
       <div class="col-sm-8 col-md-9 col-lg-10">
         <%= f.text_field :email, class: 'form-control',size: "2" %>
@@ -43,7 +43,7 @@
     </div>
     <div class="row pb-2 pl-5 pr-5">
       <div class="col-sm-4 col-md-3 col-lg-2">
-        <label>自己紹介</label>
+        <%= f.label :introduction %>
       </div>
       <div class="col-sm-8 col-md-9 col-lg-10">
         <%= f.text_area :introduction, class: 'form-control',size: "2x3" %>
