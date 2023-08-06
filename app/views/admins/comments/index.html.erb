@@ -10,24 +10,22 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container mt-3">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <div class="p-2">
-        <span class="rounded-pill p-1 pl-4 pr-4" style="background-color:#afeeee; font-size: 17px; text-decoration: underline;">コメント一覧</span>
-      </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+      <h5>コメント一覧</h5>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container pt-2 pb-5">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-      <table class="table">
+      <table class="table table-responsive-xl" style="white-space: nowrap;">
         <thead>
           <th class="col-sm-1 col-md-1 col-lg-1 pl-3">ID</th>
-          <th class="col-sm-2 col-md-2 col-lg-2">投稿者</th>
+          <th class="col-sm-3 col-md-3 col-lg-3">投稿者</th>
           <th class="col-sm-7 col-md-7 col-lg-7">本文</th>
-          <th class="col-sm-2 col-md-2 col-lg-2"></th>
+          <th class="col-sm-1 col-md-1 col-lg-1"></th>
         </thead>
         <tbody>
           <% @comments.each do |comment| %>
@@ -38,8 +36,12 @@
                   <span style="text-decoration: underline;"><%= comment.user.name %></span>
                 <% end %>
               </td>
-              <td><%= comment.body %></td>
-              <td><%= link_to "削除する", admins_comment_path(comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm rounded-pill p-1 pl-4 pr-4" %></td>
+              <td><%= simple_format(comment.body) %></td>
+              <td>
+                <%= link_to admins_comment_path(comment.id), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                  <i class="fas fa-trash-alt" style="color: #666e7a;"></i>削除
+                <% end %>  
+              </td>
             </tr>
           <% end %>
         </tbody>
