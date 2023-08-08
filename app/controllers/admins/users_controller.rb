@@ -1,12 +1,7 @@
 class Admins::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   def index
-    if params[:search].present?
-      @users = User.search(params)
-    else
-      @users = User.all
-    end
-    @users = @users.page(params[:page]).per(10)
+    @users = User.search(params).page(params[:page]).per(10)
   end
 
   def show

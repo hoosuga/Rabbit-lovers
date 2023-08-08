@@ -4,8 +4,14 @@
       <div class="col-sm-3 col-md-6 col-lg-8"></div>
         <div class="col-sm-9 col-md-6 col-lg-4">
           <div class="d-flex justify-content-end">
+            <%= f.label :status do %>
+              <%= f.check_box :status, vlaue: true, checked: params[:status].to_i == 1 ? true : false %>
+              退会済み
+            <% end %>
+          </div>
+          <div class="d-flex justify-content-end">
             <div class="input-group">
-              <%= f.text_field :search, placeholder: "キーワード", class: "form-control" %>
+              <%= f.text_field :search, placeholder: "キーワード", class: "form-control", value: params[:search] %>
               <div class="input-group-append">
                 <%= f.button class: "btn btn-secondary" do %>
                   <i class="fa fa-search"></i>検索

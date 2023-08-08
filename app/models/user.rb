@@ -14,7 +14,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
 
   def self.search(params)
-    User.where('users.name LIKE ? OR users.introduction LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
+    User.where('(users.name LIKE ? OR users.introduction LIKE ?) AND users.is_deleted = ?', 
+                  "%#{params[:search]}%", "%#{params[:search]}%", params[:status].to_i == 1 ? true : false)
   end
   
   def get_profile_image
