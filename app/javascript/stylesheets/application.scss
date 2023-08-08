@@ -17,7 +17,6 @@ body, {
     .grid-container {
       margin-left: 10px;
       margit-top: 10px;
-      //margin-right: auto;
     }
   }
   @media (max-width: 991px) {
@@ -302,4 +301,23 @@ input[type="radio"] {
 
 p {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+table {
+  display: block;
+  width: 100%;
+}
+table tbody {
+  display: block;
+  width: 100%;
+}
+table tr {
+  display: block;
+  width: 100%;
+}
+table th {
+  display: block;
+  width: 100%;
+}
 }
