@@ -20,24 +20,24 @@
         <tbody>
           <tr>
             <td rowspan="5" class="top col-sm-2 col-md-2 col-lg-2"><%= image_tag @user.get_profile_image %></td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">会員ID</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= @user.id %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ID</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.id %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">名前</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= @user.name %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">名前</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.name %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">メールアドレス</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= @user.email %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">メールアドレス</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.email %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">自己紹介</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom"><%= simple_format(@user.introduction) %></td>
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">自己紹介</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= simple_format(@user.introduction) %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">会員ステータス</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2 border-bottom">
+            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ステータス</td>
+            <td class="col-sm-6 col-md-6 col-lg-6 p-2">
               <% if @user.is_deleted == false %>
                 <span class="font-weight-bold" style="color:#00AA00;">有効</span>
               <% else %>
