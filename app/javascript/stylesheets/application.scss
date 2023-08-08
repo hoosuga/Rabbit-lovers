@@ -278,8 +278,13 @@ a {
       background: linear-gradient(transparent 75%, #f1ee72bd 75%);
 }
 
-.room-create {
-  border: 2px solid #B0E0E6;
+.one-table {
+  border: 2px solid #e3e8e8;
+  border-radius: 10px;
+}
+
+.clear-table {
+  border: 2px solid #fff0;
   border-radius: 10px;
 }
 
@@ -303,21 +308,21 @@ p {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 767px) {
-table {
-  display: block;
-  width: 100%;
-}
-table tbody {
-  display: block;
-  width: 100%;
-}
-table tr {
-  display: block;
-  width: 100%;
-}
-table th {
-  display: block;
-  width: 100%;
-}
+@media screen and (max-width: 991px) {
+  table {
+    display: block;
+    width: 100%;
+  }
+  table tbody {
+    display: block;
+    width: 100%;
+  }
+  table tr {
+    display: block;
+    width: 100%;
+  }
+  table td {
+    display: block;
+    width: 100%;
+  }
 }
