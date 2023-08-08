@@ -308,21 +308,23 @@ p {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 991px) {
-  table {
-    display: block;
-    width: 100%;
-  }
-  table tbody {
-    display: block;
-    width: 100%;
-  }
-  table tr {
-    display: block;
-    width: 100%;
-  }
-  table td {
-    display: block;
-    width: 100%;
+.vertical-table {
+  @media screen and (max-width: 991px) {
+    table {
+      display: block;
+      width: 100%;
+    }
+    table tbody {
+      display: block;
+      width: 100%;
+    }
+    table tr {
+      display: block;
+      width: 100%;
+    }
+    table td {
+      display: block;
+      width: 100%;
+    }
   }
 }
