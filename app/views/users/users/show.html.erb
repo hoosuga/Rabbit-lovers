@@ -18,8 +18,8 @@
       <% end %>
     </div>
   </div>
-  <div class="row pl-5 pt-2 pr-5 vertical-table">
-    <div class="col-sm-12 col-md-12 col-lg-12 p-2 mb-2 clear-table">
+  <div class="row pl-5 pr-5 clear-table vertical-table-user m-1">
+    <div class="col-sm-12 col-md-12 col-lg-12 p-2 mb-2">
       <table border=1 frame="void" rules="none">
         <tbody>
           <tr>
@@ -29,13 +29,13 @@
           </tr>
           <% if @user == current_user %>
           <tr>
-            <td class="col-lg-4 p-2">メールアドレス</td>
-            <td class="col-lg-6 p-2 pl-4"><%= @user.email %></td>
+            <td class="p-2">メールアドレス</td>
+            <td class="p-2 pl-4"><%= @user.email %></td>
           </tr>
           <% end %>
           <tr>
-            <td class="col-lg-4 p-2">自己紹介</td>
-            <td class="col-lg-6 p-2 pl-4"><%= simple_format(@user.introduction) %></td>
+            <td class="p-2">自己紹介</td>
+            <td class="p-2 pl-4"><%= simple_format(@user.introduction) %></td>
           </tr>
         </tbody>
       </table>

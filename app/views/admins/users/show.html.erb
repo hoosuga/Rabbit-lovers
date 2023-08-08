@@ -14,30 +14,30 @@
       </span>
     </div>
   </div>
-  <div class="row pl-5 pt-2 pr-5">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <table class="table-responsive-md" style="border:none; white-space: nowrap;">
+  <div class="row pl-5 pr-5 clear-table vertical-table-user m-1">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-2 mb-2">
+      <table border=1 frame="void" rules="none">
         <tbody>
           <tr>
             <td rowspan="5" class="top col-sm-2 col-md-2 col-lg-2"><%= image_tag @user.get_profile_image %></td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ID</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.id %></td>
+            <td class="col-lg-4 p-2">会員ID</td>
+            <td class="col-lg-6 p-2 pl-4"><%= @user.id %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">名前</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.name %></td>
+            <td class="p-2">名前</td>
+            <td class="p-2 pl-4"><%= @user.name %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">メールアドレス</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= @user.email %></td>
+            <td class="p-2">メールアドレス</td>
+            <td class="p-2 pl-4"><%= @user.email %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">自己紹介</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2"><%= simple_format(@user.introduction) %></td>
+            <td class="p-2">自己紹介</td>
+            <td class="p-2 pl-4"><%= simple_format(@user.introduction) %></td>
           </tr>
           <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">会員ステータス</td>
-            <td class="col-sm-6 col-md-6 col-lg-6 p-2">
+            <td class="p-2">会員ステータス</td>
+            <td class="p-2 pl-4">
               <% if @user.is_deleted == false %>
                 <span class="font-weight-bold" style="color:#00AA00;">有効</span>
               <% else %>

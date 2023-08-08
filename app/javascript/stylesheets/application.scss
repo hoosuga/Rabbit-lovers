@@ -328,3 +328,24 @@ p {
     }
   }
 }
+
+.vertical-table-user {
+  @media screen and (max-width: 1199px) {
+    table {
+      display: block;
+      width: 100%;
+    }
+    table tbody {
+      display: block;
+      width: 100%;
+    }
+    table tr {
+      display: block;
+      width: 100%;
+    }
+    table td {
+      display: block;
+      width: 100%;
+    }
+  }
+}
