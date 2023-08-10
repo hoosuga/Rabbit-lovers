@@ -23,7 +23,7 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    profile_image.variant(resize_to_limit: [80, 80]).processed
+    profile_image.variant( resize: "80x80^", gravity: "center", crop: "80x80+0+0" ).processed
   end
   
   def self.guest

@@ -5,7 +5,7 @@
         <div class="col-sm-9 col-md-6 col-lg-4">
           <div class="d-flex justify-content-end">
             <div class="input-group">
-              <%= f.text_field :search, placeholder: "キーワード", class: "form-control" %>
+              <%= f.text_field :search, placeholder: "キーワード", class: "form-control", value: params[:search] %>
               <div class="input-group-append">
                 <%= f.button class: "btn btn-secondary" do %>
                   <i class="fa fa-search"></i>検索
@@ -24,28 +24,28 @@
       <h5>会員一覧</h5>
     </div>
   </div>
-  <div class="row pt-3">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <table class="table table-responsive-md" style="border:none; white-space: nowrap;">
-        <tbody>
-          <% @users.each do |user| %>
+  <div class="row vertical-table pt-3 m-1">
+    <% @users.each do |user| %>
+      <div class="col-sm-12 col-md-12 col-lg-12 p-2 mb-2 one-table">
+        <table border=1 frame="void" rules="none">
+          <tbody>
             <tr>
-              <td class="col-sm-2 col-md-2 col-lg-2">
+              <td class="col-lg-1 mb-2">
                 <%= image_tag user.get_profile_image %>
               </td>
-              <td class="col-sm-4 col-md-4 col-lg-4">
+              <td class="col-lg-4 mb-1">
                 <%= link_to user_path(user.id) do %>
                   <span style="text-decoration: underline;"><%= user.name %></span>
                 <% end %>さん
               </td>
-              <td class="col-sm-6 col-md-6 col-lg-6">
+              <td class="col-lg-7 mb-1">
                 <%= simple_format(user.introduction) %>
               </td>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
   </div>
   <div class="d-flex justify-content-center p-2">
     <%= paginate @users %>

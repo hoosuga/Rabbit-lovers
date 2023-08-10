@@ -23,9 +23,9 @@
       <table border=1 frame="void" rules="none">
         <tbody>
           <tr>
-            <td rowspan="3" class="top col-lg-2"><%= image_tag @user.get_profile_image %></td>
-            <td class="col-lg-4 p-2">名前</td>
-            <td class="col-lg-6 p-2 pl-4"><%= @user.name %></td>
+            <td rowspan="3" class="top col-lg-1"><%= image_tag @user.get_profile_image %></td>
+            <td class="col-lg-2 p-2">名前</td>
+            <td class="col-lg-9 p-2 pl-4"><%= @user.name %></td>
           </tr>
           <% if @user == current_user %>
           <tr>
