@@ -1,61 +1,45 @@
-<div class="container">
-  <%= form_with(scope: nil, controller:"rooms", action:"index", method: :get) do |f| %>
-    <div class="row pt-3">
+<div class="container pb-3">
+  <%= render 'users/shared/keyword_search_rooms' %>
+</div>
+
+<div class="container pb-4">
+  <%= form_with url: user_rooms_path(user_id: @user), method: :get do |f| %>
+    <div class="row">
       <div class="col-sm-3 col-md-6 col-lg-8"></div>
-        <div class="col-sm-9 col-md-6 col-lg-4">
-          <div class="d-flex justify-content-end">
-            <div class="input-group">
-              <%= f.text_field :search, placeholder: "キーワード", class: "form-control", value: params[:search] %>
-              <div class="input-group-append">
-                <%= f.button class: "btn btn-secondary" do %>
-                  <i class="fa fa-search"></i>検索
-                <% end %>
-              </div>
-            </div>
+      <div class="col-sm-9 col-md-6 col-lg-4">
+        <div class="d-flex justify-content-end">
+          <div style="flex-wrap: nowrap;">
+            <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+              <span style="padding-left: 15px; padding-top: 6px;">
+                <label class="mb-0" style="flex-wrap: nowrap;">
+                  <% if category.text.in?(@category_name) %>
+                    <%= category.check_box(checked: true) %> 
+                  <% else %>
+                    <%= category.check_box(checked: false) %> 
+                  <% end %>
+                  <%= category.text %>
+                </label>
+              </span>
+            <% end %>
           </div>
         </div>
+      </div>
     </div>
-  <% end %>
-</div>
-
-<div class="container pt-3">
-  <%= form_with url: user_rooms_path(user_id: @user), method: :get do |f| %>
-  <div class="row">
-    <div class="col-sm-3 col-md-6 col-lg-8"></div>
-    <div class="col-sm-9 col-md-6 col-lg-4">
-      <div class="d-flex justify-content-end">
-        <div style="flex-wrap: nowrap;">
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-          <span style="padding-left: 15px; padding-top: 6px;">
-            <label class="mb-0" style="flex-wrap: nowrap;">
-            <% if category.text.in?(@category_name) %>
-              <%= category.check_box(checked: true) %> 
-            <% else %>
-              <%= category.check_box(checked: false) %> 
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-end">
+          <div style="padding-left: 10px;">
+            <%= f.button class: "btn btn-secondary" do %>
+              <i class="fa fa-search"></i>カテゴリ検索
             <% end %>
-          <%= category.text %>
-          </label>
-          </span>
-        <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="d-flex justify-content-end">
-        <div style="padding-left: 10px;">
-          <%= f.button class: "btn btn-secondary" do %>
-            <i class="fa fa-search"></i>カテゴリ検索
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
   <% end %>
 </div>
 
-<div class="container pt-4 pb-5">
+<div class="container pb-5">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 p-0">
       <h5><%= @user.name %>のトークルーム</h5>
