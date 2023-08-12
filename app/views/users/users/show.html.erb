@@ -1,21 +1,22 @@
-<div class="container">
+<div class="container pb-3">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+    <div class="col-12 p-0">
       <h5><%= @user.name %>のページ</h5>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container pb-5">
   <div class="row pl-5 pt-3">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="col-12">
       <span class="font-weight-bold" style="font-size: 20px;">登録情報</span>
       <span style="padding-left: 10px;">
-      <% if @user == current_user %>
-        <%= link_to edit_user_path(@user.id) do %>
-          <i class="fas fa-edit" style="color: #666e7a;"></i>編集
+        <% if @user == current_user %>
+          <%= link_to edit_user_path(@user.id) do %>
+            <i class="fas fa-edit" style="color: #666e7a;"></i>編集
+          <% end %>
         <% end %>
-      <% end %>
+      </span>
     </div>
   </div>
   <div class="row pl-5 pr-5 clear-table vertical-table-user m-1">
@@ -28,10 +29,10 @@
             <td class="col-lg-9 p-2 pl-4"><%= @user.name %></td>
           </tr>
           <% if @user == current_user %>
-          <tr>
-            <td class="p-2">メールアドレス</td>
-            <td class="p-2 pl-4"><%= @user.email %></td>
-          </tr>
+            <tr>
+              <td class="p-2">メールアドレス</td>
+              <td class="p-2 pl-4"><%= @user.email %></td>
+            </tr>
           <% end %>
           <tr>
             <td class="p-2">自己紹介</td>
@@ -42,25 +43,27 @@
     </div>
   </div>
 </div>
-<div class="container pt-5">
+
+<div class="container pb-5">
   <div class="row pl-5 pr-5">
     <div class="col-12">
       <p class="font-weight-bold" style="font-size: 20px;">トークルーム設立一覧</p>
     </div>
-    </div>
-    <div class="row pl-5 pr-5">
+  </div>
+  <div class="row pl-5 pr-5">
     <div class="col-12">
       <p class="pl-5"><%= link_to "一覧を見る", user_rooms_path(user_id: @user), class: "befor-sign" %></p>
     </div>
   </div>
 </div>
-<div class="container pt-5 pb-5">
+
+<div class="container pb-5">
   <div class="row pl-5 pr-5">
     <div class="col-12">
       <p class="font-weight-bold" style="font-size: 20px;">いいね一覧</p>
     </div>
-    </div>
-    <div class="row pl-5 pr-5">
+  </div>
+  <div class="row pl-5 pr-5">
     <div class="col-12">
       <p class="pl-5"><%= link_to "一覧を見る", user_likes_path(user_id: @user), class: "befor-sign" %></p>
     </div>

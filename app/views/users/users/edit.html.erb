@@ -1,21 +1,22 @@
-<div class="container">
+<div class="container pb-3">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+    <div class="col-12 p-0">
       <h5><%= @user.name %>さんの会員情報編集</h5>
     </div>
   </div>
   <% if @user.errors.any? %>
     <div class = "alert mb-0">
       <%= @user.errors.count %>件のエラーが発生しました。
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 </div>
-<div class="container pt-3 pb-5">
+
+<div class="container pb-5">
   <%= form_with model: @user, url: user_path, method: :patch do |f| %>
     <div class="row pb-2 pl-5 pr-5">
       <div class="col-sm-4 col-md-3 col-lg-2">
@@ -49,7 +50,7 @@
         <%= f.text_area :introduction, class: 'form-control',size: "2x3" %>
       </div>
     </div>
-    <div class="row pb-2 pl-5 pr-5">
+    <div class="row pt-2 pb-2 pl-5 pr-5">
       <div class="col-sm-4 col-md-3 col-lg-2"></div>
       <div class="col-sm-8 col-md-9 col-lg-10 update-btn">
         <%= f.submit "更新する", class: "btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4" %>
