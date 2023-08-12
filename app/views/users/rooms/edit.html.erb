@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+<div class="container pb-3">
+  <div class="row pb-3">
     <div class="col-sm-12 col-md-12 col-lg-12 p-0">
       <h5><%= @room.title %>のルーム編集</h5>
     </div>
@@ -14,8 +14,6 @@
         </ul>
     </div>
   <% end %>
-</div>
-<div class="container pt-3">
   <div class="row pb-2 pl-2">
     <div class="col-sm-2 col-md-2 col-lg-2 pt-2 pl-5">
       <%= image_tag @room.user.get_profile_image %>
