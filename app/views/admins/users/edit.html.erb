@@ -1,61 +1,60 @@
-<div class="container">
+<div class="container pb-3">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+    <div class="col-12 p-0">
       <h5><%= @user.name %>さんの会員情報編集</h5>
     </div>
   </div>
   <% if @user.errors.any? %>
     <div class = "alert mb-0">
       <%= @user.errors.count %>件のエラーが発生しました。
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 </div>
-<div class="container pt-3 pb-5">
-  <div class="row pl-5 pr-5">
-    <div class="col-sm-12 col-md-12 col-lg-12 update-btn">
+
+<div class="container pb-5">
+  <div class="row pl-5 pr-5 clear-table vertical-table-user m-1">
+    <div class="col-12 p-2 mb-2">
       <%= form_with model: @user, url: admins_user_path, method: :patch do |f| %>
-      <table class="table-responsive-md" style="border:none; white-space: nowrap;">
-        <tbody>
-          <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">会員ID</td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom"><%= @user.id %></td>
-          </tr>
-          <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">名前</td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom"><%= @user.name %></td>
-          </tr>
-          <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">メールアドレス</td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom"><%= @user.email %></td>
-          </tr>
-          <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">自己紹介</td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom"><%= simple_format(@user.introduction) %></td>
-          </tr>
-          <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">会員ステータス</td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2 border-bottom">
-              <%= f.radio_button :is_deleted, false %>
-              <%= f.label :sale_status_false, "有効" %>
-              <span style="padding-left: 30px;">
-                <%= f.radio_button :is_deleted, true %>
-                <%= f.label :sale_status_true, "退会" %>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2"></td>
-            <td class="col-sm-4 col-md-4 col-lg-4 p-2">
-              <%= f.submit "更新する", class: "btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4" %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <table border=1 frame="void" rules="none">
+          <tbody>
+            <tr>
+              <td class="col-lg-2 p-2 m-0">会員ID</td>
+              <td class="col-lg-9 p-0 pb-2 p-xl-2 pl-4"><%= @user.id %></td>
+            </tr>
+            <tr>
+              <td class="col-lg-2 p-2"><%= f.label :name %></td>
+              <td class="col-lg-9 p-0 pb-2 p-xl-2 pl-4"><%= @user.name %></td>
+            </tr>
+            <tr>
+              <td class="col-lg-2 p-2"><%= f.label :email %></td>
+              <td class="col-lg-9 p-0 pb-2 p-xl-2 pl-4"><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td class="col-lg-2 p-2"><%= f.label :introduction %></td>
+              <td class="col-lg-9 p-0 pb-2 p-xl-2 pl-4"><%= simple_format(@user.introduction) %></td>
+            </tr>
+            <tr>
+              <td class="col-lg-2 p-2"><%= f.label :is_deleted %></td>
+              <td class="col-lg-9 p-0 pb-2 p-xl-2 pl-4">
+                <%= f.radio_button :is_deleted, false %>
+                <%= f.label :sale_status_false, "有効" %>
+                <span style="padding-left: 30px;">
+                  <%= f.radio_button :is_deleted, true %>
+                  <%= f.label :sale_status_true, "退会" %>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-lg-2 p-2"></td>
+              <td class="col-lg-9 p-2 pl-4 update-btn"><%= f.submit "更新する", class: "btn btn-secondary btn-sm rounded-pill p-1 pl-4 pr-4" %></td>
+            </tr>
+          </tbody>
+        </table>
       <% end %>
     </div>
   </div>

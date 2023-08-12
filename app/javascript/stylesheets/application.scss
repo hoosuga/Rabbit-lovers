@@ -345,7 +345,10 @@ p {
   margin: auto;
 }
 
-/* ページネーション全体 */
+label {
+    margin-bottom: 0;
+}
+
 .pagination{
   text-align: center;
   display: flex;
@@ -356,7 +359,6 @@ p {
   text-align: center;
 }
 
-/* ページネーションのリンク文字（a） */
 .pagination a{
   color: #818181;
   display: block;
@@ -366,7 +368,6 @@ p {
   padding: 10px;
 }
 
-/* ページネーションの文字にカーソルを載せた時 */
 .pagination a:hover{
   width: 40px;
   height: 40px;

@@ -1,11 +1,11 @@
 <div class="container pb-5">
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+  <div class="row pb-3">
+    <div class="col-12 p-0">
       <h5>ログイン</h5>
     </div>
   </div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="row pt-3 pb-2 pl-5">
+    <div class="row pb-2 pl-5">
       <div class="col-md-3 col-lg-2">
         <%= f.label :email %>
       </div>
@@ -37,13 +37,13 @@
 </div>
 
 <div class="container pb-5">
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+  <div class="row pb-3">
+    <div class="col-12 p-0">
       <h5>会員登録がお済ではない方</h5>
     </div>
   </div>
-  <div class="row pt-3">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+  <div class="row">
+    <div class="col-12">
       <p class="pl-5"><%= link_to "新規会員登録ページ", new_user_registration_path, class: "befor-sign" %>　はこちらから！</p>
     </div>
   </div>
