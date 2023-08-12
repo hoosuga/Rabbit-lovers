@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pb-2">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 p-0">
       <h5><%= @room.title %>のルーム</h5>
@@ -24,7 +24,8 @@
     </div>
   </div>
 </div>
-<div class="container pt-2">
+
+<div class="container pb-3">
   <div class="row pt-1 one-table vertical-table m-1">
     <div class="col-sm-12 col-md-12 col-lg-12 pb-1">
       <table border=1 frame="void" rules="none">
@@ -65,40 +66,43 @@
   <div class="row clear-table vertical-table m-1">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <% @room.comments.each do |comment| %>
-      <table border=1 frame="void" rules="none">
-        <tbody>
-          <tr>
-            <td class="col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
-            <td class="col-lg-9">
-              <%= localize comment.created_at, format: :short %></br>
-              <%= link_to user_path(comment.user.id) do %>
-                <span style="text-decoration: underline;"><%= comment.user.name %></span>
-              <% end %>さん
-            </td>
-            <td class="col-lg-2">
-              <div class="text-right">
-                <% if comment.user == current_user %>
-                  <%= link_to room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-                    <i class="fas fa-trash-alt" style="color: #666e7a;"></i>削除
+        <table border=1 frame="void" rules="none">
+          <tbody>
+            <tr>
+              <td class="col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
+              <td class="col-lg-9">
+                <%= localize comment.created_at, format: :short %></br>
+                <%= link_to user_path(comment.user.id) do %>
+                  <span style="text-decoration: underline;"><%= comment.user.name %></span>
+                <% end %>さん
+              </td>
+              <td class="col-lg-2">
+                <div class="text-right">
+                  <% if comment.user == current_user %>
+                    <%= link_to room_comment_path(comment.room, comment), method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                      <i class="fas fa-trash-alt" style="color: #666e7a;"></i>削除
+                    <% end %>
                   <% end %>
-                <% end %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-lg-1 pb-2"></td>
-            <td colspan="2" class="col-lg-11 pb-2"><%= simple_format(comment.body) %></td>
-          </tr>
-        </tbody>
-      </table>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-lg-1 pb-2"></td>
+              <td colspan="2" class="col-lg-11 pb-2"><%= simple_format(comment.body) %></td>
+            </tr>
+          </tbody>
+        </table>
       <% end %>
     </div>
   </div>
   <div class="d-flex justify-content-center p-2">
-    <%= paginate @comments %>
+    <div class="item__paginate">
+      <%= paginate @comments %>
+    </div>
   </div>
 </div>
-<div class="container pt-3 pb-5">
+
+<div class="container pb-5">
   <% if @comment.errors.any? %>
     <div class = "alert mb-0">
       <%= @comment.errors.count %>件のエラーが発生しました。
@@ -110,15 +114,15 @@
     </div>
   <% end %>
   <%= form_with model: [@room, @comment], method: :post do |f| %>
-  <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-      <%= f.text_area :body, placeholder: "コメントを入力" , class: 'form-control' %>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <%= f.text_area :body, placeholder: "コメントを入力" , class: 'form-control' %>
+      </div>
     </div>
-  </div>
-  <div class="row pt-3">
-    <div class="col-sm-12 col-md-12 col-lg-12 new-create-btn">
-      <%= f.submit "コメントする！", class: "btn btn-success btn-sm rounded-pill" %>
+    <div class="row pt-3">
+      <div class="col-sm-12 col-md-12 col-lg-12 new-create-btn">
+        <%= f.submit "コメントする！", class: "btn btn-success btn-sm rounded-pill" %>
+      </div>
     </div>
-  </div>
   <% end %>
 </div>
