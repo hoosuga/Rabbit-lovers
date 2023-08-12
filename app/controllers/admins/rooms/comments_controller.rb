@@ -2,6 +2,7 @@ class Admins::Rooms::CommentsController < ApplicationController
   before_action :authenticate_admin!, only: [:destroy]
   before_action :set_room, only: [:destroy]
   before_action :set_comment, only: [:destroy]
+  
   def destroy
     @comment.destroy
     flash[:notice] = "コメントを削除しました。"

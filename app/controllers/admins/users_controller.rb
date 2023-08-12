@@ -1,7 +1,8 @@
 class Admins::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  
   def index
-    @users = User.search(params).page(params[:page]).per(10)
+    @users = User.search(params).page(params[:page]).per(20)
   end
 
   def show
@@ -29,6 +30,5 @@ class Admins::UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
   
 end

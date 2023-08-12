@@ -1,6 +1,8 @@
 class Users::RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :set_room, only: [:show, :edit, :destroy]
+  
   def index
     @category_ids = params[:category_ids]&.select(&:present?)
     @category_name = Category.where(id: @category_ids).pluck(:name)
@@ -33,13 +35,11 @@ class Users::RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
     @comments = @room.comments.page(params[:page]).per(10)
     @comment = current_user.comments.new
   end
 
   def edit
-    @room = Room.find(params[:id])
   end
   
   def update
@@ -53,7 +53,6 @@ class Users::RoomsController < ApplicationController
   end
   
   def destroy
-    @room = Room.find(params[:id])
     @room.user_id = current_user.id
     @room.destroy
     flash[:notice] = "トークルームの削除に成功しました。"
@@ -71,6 +70,10 @@ class Users::RoomsController < ApplicationController
     unless @room.user.id == current_user.id
       redirect_to room_path(id: @room.id)
     end
+  end
+  
+  def set_room
+    @room = Room.find(params[:id])
   end
   
 end

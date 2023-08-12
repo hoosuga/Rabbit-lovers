@@ -1,7 +1,9 @@
 class Users::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
   before_action :guest_check, only: [:edit, :update]
+  
   def index
     if params[:search].present?
       @users = User.search(params)
@@ -12,15 +14,12 @@ class Users::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "マイページ更新に成功しました。"
       redirect_to user_path(id: @user.id)
@@ -49,6 +48,10 @@ class Users::UsersController < ApplicationController
     unless @user.id = current_user.id
        redirect_to user_path(id: @user.id)
     end
+  end
+  
+  def set_user
+    @user = User.find(params[:id])
   end
  
   def guest_check

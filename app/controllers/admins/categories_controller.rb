@@ -1,4 +1,6 @@
 class Admins::CategoriesController < ApplicationController
+  before_action :set_category, only: [:edit, :update, :destroy]
+  
   def index
     @category = Category.new
     @categories = Category.page(params[:page]).per(10)
@@ -17,11 +19,9 @@ class Admins::CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
   
   def update
-    @category = Category.find(params[:id])
     if @category.update(category_params)
       flash[:notice] = "カテゴリ名の更新に成功しました。"
       redirect_to admins_categories_path
@@ -32,7 +32,6 @@ class Admins::CategoriesController < ApplicationController
   end
   
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     flash[:notice] = "カテゴリ名の削除に成功しました。"
     redirect_to admins_categories_path
@@ -42,6 +41,10 @@ class Admins::CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+  
+  def set_category
+    @category = Category.find(params[:id])
   end
   
 end
