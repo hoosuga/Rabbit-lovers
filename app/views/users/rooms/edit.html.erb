@@ -1,24 +1,24 @@
 <div class="container pb-3">
   <div class="row pb-3">
-    <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+    <div class="col-12 p-0">
       <h5><%= @room.title %>のルーム編集</h5>
     </div>
   </div>
   <% if @room.errors.any? %>
     <div class = "alert mb-0">
       <%= @room.errors.count %>件のエラーが発生しました。
-        <ul>
-          <% @room.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+      <ul>
+        <% @room.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
   <div class="row pb-2 pl-2">
-    <div class="col-sm-2 col-md-2 col-lg-2 pt-2 pl-5">
+    <div class="col-sm-3 col-lg-2 pt-2 pl-5">
       <%= image_tag @room.user.get_profile_image %>
     </div>
-    <div class="col-sm-10 col-md-10 col-lg-10 pl-lg-1 pt-2 pl-5">
+    <div class="col-sm-9 col-lg-10 pt-2 pl-5">
       <%= localize @room.updated_at, format: :short %></br>
       <%= link_to user_path(@room.user.id) do %>
         <span style="text-decoration: underline;"><%= @room.user.name %></span>
@@ -26,7 +26,8 @@
     </div>
   </div>
 </div>
-<div class="container pt-3 pb-5">
+
+<div class="container pb-5">
   <%= form_with model: @room, url: room_path, method: :patch do |f| %>
     <div class="row pb-2 pl-5 pr-5">
       <div class="col-md-3 col-lg-2">
@@ -66,7 +67,8 @@
         <%= f.label :status, Room.statuses_i18n[:open] %>
         <span style="padding-left: 30px;">
           <%= f.radio_button :status, Room.statuses.key(2) %>
-          <%= f.label :status, Room.statuses_i18n[:close] %></span>
+          <%= f.label :status, Room.statuses_i18n[:close] %>
+        </span>
       </div>
     </div>
     <div class="row pb-2 pl-5 pr-5">
