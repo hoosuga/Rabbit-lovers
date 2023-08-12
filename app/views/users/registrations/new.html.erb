@@ -1,14 +1,12 @@
-<div class="container">
+<div class="container pb-5">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 p-0">
       <h5>新規会員登録</h5>
     </div>
   </div>
-</div>
-<div class="container pt-3">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
-    <div class="row pb-2 pl-5">
+    <div class="row pt-3 pb-2 pl-5">
       <div class="col-md-4 col-lg-3">
         <%= f.label :name %>
       </div>
@@ -53,7 +51,7 @@
 </div>
 
 <div class="container pb-5">
-  <div class="row pt-5">
+  <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 p-0">
       <h5>すでに登録済み or お試ししたい方</h5>
     </div>
@@ -61,6 +59,6 @@
   <div class="row pt-3">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <p class="pl-5"><%= link_to "ログインページ", new_user_session_path, class: "befor-sign" %>　はこちらから！</p>
+    </div>
+  </div>
 </div>
-
-<%#= render "users/shared/links" %>
