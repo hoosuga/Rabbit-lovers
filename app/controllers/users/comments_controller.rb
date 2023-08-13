@@ -10,7 +10,7 @@ class Users::CommentsController < ApplicationController
       flash[:notice] = "コメントの投稿に成功しました。"
       redirect_to room_path(id: @room.id)
     else
-      flash[:alert] = "コメントの投稿に失敗しました。コメントを入力してください。"
+      flash[:alert] = "コメントの投稿に失敗しました。"
       render template: 'users/rooms/show'
     end
   end

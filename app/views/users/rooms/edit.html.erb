@@ -20,9 +20,7 @@
     </div>
     <div class="col-sm-9 col-lg-10 pt-2 pl-5">
       <%= localize @room.updated_at, format: :short %></br>
-      <%= link_to user_path(@room.user.id) do %>
-        <span style="text-decoration: underline;"><%= @room.user.name %></span>
-      <% end %>さん
+      <%= @room.user.name %>さん
     </div>
   </div>
 </div>

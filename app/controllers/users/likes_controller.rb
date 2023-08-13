@@ -5,6 +5,7 @@ class Users::LikesController < ApplicationController
     room = Room.find(params[:room_id])
     like = current_user.likes.new(room_id: room.id)
     like.save
+    flash[:notice] = "いいねしました。"
     redirect_to room_path(id: room.id)
   end
   
@@ -12,6 +13,7 @@ class Users::LikesController < ApplicationController
     room = Room.find(params[:room_id])
     like =current_user.likes.find_by(room_id: room.id)
     like.destroy
+    flash[:notice] = "いいねを取り消しました。"
     redirect_to room_path(id: room.id)
   end
 end
