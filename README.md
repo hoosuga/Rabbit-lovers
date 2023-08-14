@@ -42,7 +42,7 @@ URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1
   - ユーザー側  
     URL：https://drive.google.com/file/d/1KT34_Nl0okBFaFjokk-n4t58v0hU3duE/view?usp=sharing  
   - 管理者側  
-    URL：https://drive.google.com/file/d/1C6Cuet8SBqGjJR7Iieazqz5nS9TPObbw/view?usp=sharing  
+    URL：https://drive.google.com/file/d/10934uaEiqAHURn7w7DLT0QErr1MdXlKN/view?usp=sharing  
 - ER図  
 URL：https://drive.google.com/file/d/1O0pb4_uh97NbP9uaOH4WonaL6Flzckx1/view?usp=sharing  
 - テーブル定義書  
@@ -52,7 +52,7 @@ URL：https://docs.google.com/spreadsheets/d/1_EQWGFQoTS7Uw_TedCXTPR7NeF8qqqWeGO
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,JavaScript,Ruby,SCCS
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
@@ -64,3 +64,5 @@ URL：https://docs.google.com/spreadsheets/d/1_EQWGFQoTS7Uw_TedCXTPR7NeF8qqqWeGO
 - イラスト素材(フリー)  
   - イラストAC  
     URL：https://www.ac-illust.com/
+- うさぎ写真
+  - 全て作成者のペット
