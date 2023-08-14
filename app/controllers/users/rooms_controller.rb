@@ -35,7 +35,6 @@ class Users::RoomsController < ApplicationController
   end
 
   def show
-    @comments = @room.comments.page(params[:page]).per(10)
     @comment = current_user.comments.new
   end
 

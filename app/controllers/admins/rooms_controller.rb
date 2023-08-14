@@ -10,7 +10,6 @@ class Admins::RoomsController < ApplicationController
   end
 
   def show
-    @comments = @room.comments.page(params[:page]).per(10)
   end
   
   def destroy
