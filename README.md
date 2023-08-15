@@ -64,5 +64,5 @@ URL：https://docs.google.com/spreadsheets/d/1_EQWGFQoTS7Uw_TedCXTPR7NeF8qqqWeGO
 - イラスト素材(フリー)  
   - イラストAC  
     URL：https://www.ac-illust.com/
-- うさぎ写真
-  - 全て作成者のペット
+- うさぎの写真
+  - 全て作成者のペット(3羽)
