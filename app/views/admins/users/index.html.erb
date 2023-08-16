@@ -32,12 +32,13 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <table class="table table-responsive-md" style="white-space: nowrap">
+      <table class="table">
         <thead>
-          <th class="col-1 pl-3">ID</th>
-          <th class="col-4">名前</th>
-          <th class="col-5">メールアドレス</th>
-          <th class="col-2">ステータス</th>
+          <th class="col pl-3" style="width: 10%;">ID</th>
+          <th class="col" style="width: 20%;">名前</th>
+          <th class="col" style="width: 20%;">メールアドレス</th>
+          <th class="col" style="width: 40%;">自己紹介</th>
+          <th class="col" style="width: 10%;">ステータス</th>
         </thead>
         <tbody>
           <% @users.each do |user| %>
@@ -49,6 +50,7 @@
                 <% end %>
               </td>
               <td><%= user.email %></td>
+              <td><%= simple_format(user.introduction) %></td>
               <td>
                 <% if user.is_deleted == false %>
                   <span class="font-weight-bold" style="color:#00AA00;">有効</span>
