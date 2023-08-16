@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-sm-3 col-md-6 col-lg-8"></div>
         <div class="col-sm-9 col-md-6 col-lg-4">
-          <div class="d-flex justify-content-end">
-            <%= f.label :status do %>
-              <%= f.check_box :status, vlaue: true, checked: params[:status].to_i == 1 ? true : false %>
+          <div class="d-flex justify-content-end pb-1">
+            <%= f.label :is_deleted do %>
+              <%= f.check_box :is_deleted, vlaue: true, checked: params[:is_deleted].to_i == 1 ? true : false %>
               退会済み
             <% end %>
           </div>

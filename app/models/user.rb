@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   def self.search(params)
     User.where('(users.name LIKE ? OR users.introduction LIKE ?) AND users.is_deleted = ?', 
-                  "%#{params[:search]}%", "%#{params[:search]}%", params[:status].to_i == 1 ? true : false)
+                  "%#{params[:search]}%", "%#{params[:search]}%", params[:is_deleted].to_i == 1 ? true : false)
   end
   
   def get_profile_image
