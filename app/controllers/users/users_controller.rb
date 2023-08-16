@@ -8,7 +8,7 @@ class Users::UsersController < ApplicationController
     if params[:search].present?
       @users = User.search(params)
     else
-      @users = User.all
+      @users = User.all.where(is_deleted: 0)
     end
     @users = @users.page(params[:page]).per(10)
   end
@@ -21,10 +21,10 @@ class Users::UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      flash[:notice] = "マイページ更新に成功しました。"
+      flash[:notice] = "マイページの更新に成功しました。"
       redirect_to user_path(id: @user.id)
     else
-      flash.now[:alert] = "マイページ更新に失敗しました。"
+      flash.now[:alert] = "マイページの更新に失敗しました。"
       render :edit
     end
   end
@@ -33,7 +33,7 @@ class Users::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会処理を実行しました"
+    flash[:notice] = "退会処理を実行しました。"
     redirect_to root_path
   end
   

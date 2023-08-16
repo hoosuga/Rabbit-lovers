@@ -13,10 +13,10 @@ class Admins::UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      flash[:notice] = "会員ステータス更新に成功しました。"
+      flash[:notice] = "会員ステータスの更新に成功しました。"
       redirect_to admins_user_path(id: @user.id)
     else
-      flash.now[:alert] = "会員ステータス更新に失敗しました。"
+      flash.now[:alert] = "会員ステータスの更新に失敗しました。"
       render :show
     end
   end

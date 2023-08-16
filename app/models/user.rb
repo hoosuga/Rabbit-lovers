@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :liked_rooms, through: :likes, source: :room
   
   validates :name, presence: true, length: { maximum: 30 }
+  validates :introduction, length: { maximum: 300 }
 
   def self.search(params)
     User.where('(users.name LIKE ? OR users.introduction LIKE ?) AND users.is_deleted = ?', 
