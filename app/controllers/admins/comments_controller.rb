@@ -12,7 +12,7 @@ class Admins::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    flash[:notice] = "コメントを削除しました。"
+    flash[:notice] = "コメントの削除に成功しました。"
     redirect_to admins_comments_path
   end
 end

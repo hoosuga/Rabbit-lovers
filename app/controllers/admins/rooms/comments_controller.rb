@@ -5,7 +5,7 @@ class Admins::Rooms::CommentsController < ApplicationController
   
   def destroy
     @comment.destroy
-    flash[:notice] = "コメントを削除しました。"
+    flash[:notice] = "コメントの削除に成功しました。"
     redirect_to admins_room_path(@room)
   end
   
