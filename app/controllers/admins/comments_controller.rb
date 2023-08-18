@@ -1,5 +1,5 @@
 class Admins::CommentsController < ApplicationController
-  before_action :authenticate_admin!, only: [:destroy]
+  before_action :authenticate_admin!, only: [:index, :destroy]
   def index
     if params[:search].present?
       @comments = Comment.search(params)
