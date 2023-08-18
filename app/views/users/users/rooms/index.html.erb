@@ -5,8 +5,10 @@
     <div class="col-sm-9 col-md-6 col-lg-4">
       <% if @user == current_user %>
         <div class="d-flex justify-content-end">
-          <%= f.label "非公開(下書き)を見る" %>
-          <%= f.check_box :status, {}, "close", "open" %>
+          <label>
+            <%= f.check_box :status, {}, "close", "open" %>
+            <%= f.label :status, '非公開(下書き)を見る' %>
+          </label>
         </div>
       <% end %>
       <div class="d-flex justify-content-end">
