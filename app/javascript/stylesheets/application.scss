@@ -264,6 +264,11 @@ a {
   color: #4aa6a4;
 }
 
+a:hover {
+  color: #5b9eb4;
+  text-decoration-color: #5b9eb4;
+}
+
 .marker {
       background: linear-gradient(transparent 75%, #f1ee72bd 75%);
 }
