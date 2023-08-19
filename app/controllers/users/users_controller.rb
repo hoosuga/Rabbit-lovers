@@ -45,8 +45,9 @@ class Users::UsersController < ApplicationController
 
   def is_matching_login_user
     @user = User.find(params[:id])
-    unless @user.id = current_user.id
-       redirect_to user_path(id: @user.id)
+    unless @user.id == current_user.id
+      flash.now[:alert] = "他の会員情報は編集できません。"
+      render :show
     end
   end
   

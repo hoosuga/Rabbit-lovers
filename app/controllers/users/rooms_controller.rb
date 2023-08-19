@@ -67,7 +67,9 @@ class Users::RoomsController < ApplicationController
   def is_matching_login_user
     @room = Room.find(params[:id])
     unless @room.user.id == current_user.id
-      redirect_to room_path(id: @room.id)
+      @comment = current_user.comments.new
+      flash.now[:alert] = "トークルームの設立者ではないため編集できません。"
+      render :show
     end
   end
   
