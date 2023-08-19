@@ -6,8 +6,8 @@
       <% if @user == current_user %>
         <div class="d-flex justify-content-end">
           <label>
-            <%= f.check_box :status, {}, "close", "open" %>
-            <%= f.label :status, '非公開(下書き)だけを見る' %>
+            <%= f.check_box :status, {checked: params["status"] == "close"}, "close" %>
+            <%= f.label :status, '非公開(下書き)を見る' %>
           </label>
         </div>
       <% end %>

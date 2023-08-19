@@ -16,9 +16,14 @@ class Users::Users::RoomsController < ApplicationController
         @rooms = @user_rooms.search(params)
       elsif @category_ids.present?
         room_ids = CategoryRoom.where(category_id: @category_ids).pluck(:room_id).uniq
-        @rooms = @user_rooms.where(id: room_ids)
+        @rooms = @user_rooms.where(id: room_ids).where(status: 0)
       else
-        @rooms = @user_rooms
+        if params[:status]
+          @user_rooms = @user_rooms.where(status:params[:status])
+          @rooms = @user_rooms
+        else
+          @rooms = @user_rooms.where(status: 0)
+        end
       end
     else
       if params[:search].present?
