@@ -56,9 +56,9 @@ class Users::UsersController < ApplicationController
   end
  
   def guest_check
-    if current_user == User.find(11)
+    if current_user == User.find_by(email: 'guest@example.com', name: 'ゲスト')
       flash[:alert] = "ゲストユーザーは編集ページにアクセスできません。会員登録が必要です。"
-      redirect_to user_path(11)
+      redirect_to user_path(current_user)
     end
   end
 
