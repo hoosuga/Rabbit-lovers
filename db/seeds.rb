@@ -25,16 +25,18 @@ Admin.create!(email: "admin01@test.com", password: "admin01")
                  password: "password")
     if n == 10
     elsif n == 9
-     room = user.rooms.create!(title: "test-private",
+     room = user.rooms.build(title: "test-private",
                          body: "text" * rand(5..10),
                          status: 2)
+     room.save!(validate: false)
       categories.sample(rand(1..3)).each do |category|
         CategoryRoom.create!(room_id: room.id, category_id: category.id)
       end
     else
       (1..rand(1..2)).each do |nn|
-        room = user.rooms.create!(title: "test#{n}-#{nn}",
+        room = user.rooms.build(title: "test#{n}-#{nn}",
                            body: "text" * rand(5..10))
+        room.save!(validate: false)
         categories.sample(rand(1..3)).each do |category|
           CategoryRoom.create!(room_id: room.id, category_id: category.id)
         end
