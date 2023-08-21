@@ -35,7 +35,7 @@
 URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1RWVFFDrac/edit?usp=sharing
 - 図面遷移図  
   - ユーザー側  
-    URL：https://drive.google.com/file/d/1i5vstrwjZiljbjUiqpqViL7ttZPDAB57/view?usp=sharing  
+    URL：https://drive.google.com/file/d/1dYVlOThNLRn4s951opH6FZTiqq5o0RZ7/view?usp=sharing  
   - 管理者側  
     URL：https://drive.google.com/file/d/15sj9ibUoLtUddzbxOu_R8pXXiv2h2jOV/view?usp=sharing  
 - ワイヤーフレーム  
