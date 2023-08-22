@@ -40,9 +40,9 @@ URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1
     URL：https://drive.google.com/file/d/15sj9ibUoLtUddzbxOu_R8pXXiv2h2jOV/view?usp=sharing  
 - ワイヤーフレーム  
   - ユーザー側  
-    URL：https://drive.google.com/file/d/1KT34_Nl0okBFaFjokk-n4t58v0hU3duE/view?usp=sharing  
+    URL：https://drive.google.com/file/d/169yjE2KzbGbT9463VIr-Zv5U8dVMf8xS/view?usp=sharing  
   - 管理者側  
-    URL：https://drive.google.com/file/d/10934uaEiqAHURn7w7DLT0QErr1MdXlKN/view?usp=sharing  
+    URL：https://drive.google.com/file/d/1XVWCgjfdMWrz-EXBnQgvFjukp6pODMni/view?usp=sharing  
 - ER図  
 URL：https://drive.google.com/file/d/1O0pb4_uh97NbP9uaOH4WonaL6Flzckx1/view?usp=sharing  
 - テーブル定義書  
