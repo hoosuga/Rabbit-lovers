@@ -19,7 +19,7 @@
       <%= image_tag @room.user.get_profile_image %>
     </div>
     <div class="col-sm-9 col-lg-10 pt-2 pl-5">
-      <%= localize @room.updated_at, format: :short %></br>
+      <%= localize @room.updated_at, format: :long %></br>
       <%= @room.user.name %>さん
     </div>
   </div>
