@@ -33,7 +33,7 @@
           <tr>
             <td class="col-lg-1 pt-2 mb-2"><%= image_tag @room.user.get_profile_image %></td>
             <td class="col-lg-8 mb-1">
-              <%= localize @room.updated_at, format: :short %></br>
+              <%= localize @room.updated_at, format: :long %></br>
               <%= link_to user_path(@room.user.id) do %>
                 <span style="text-decoration: underline;"><%= @room.user.name %></span>
               <% end %>さん
@@ -71,7 +71,7 @@
             <tr>
               <td class="col-lg-1 pt-2"><%= image_tag comment.user.get_profile_image %></td>
               <td class="col-lg-9">
-                <%= localize comment.created_at, format: :short %></br>
+                <%= localize comment.created_at, format: :long %></br>
                 <%= link_to user_path(comment.user.id) do %>
                   <span style="text-decoration: underline;"><%= comment.user.name %></span>
                 <% end %>さん
