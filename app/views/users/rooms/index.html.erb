@@ -103,10 +103,10 @@
       <div class="col-md-3 col-lg-2"></div>
       <div class="col-md-9 col-lg-10">
         <%= f.radio_button :status, Room.statuses.key(0) %>
-        <%= f.label :status, Room.statuses_i18n[:open] %>
+        <%= f.label :status, Room.statuses_i18n[:open], value: Room.statuses.key(0) %>
         <span style="padding-left: 30px;">
           <%= f.radio_button :status, Room.statuses.key(2) %>
-          <%= f.label :status, Room.statuses_i18n[:close] %>
+          <%= f.label :status, Room.statuses_i18n[:close], value: Room.statuses.key(2) %>
         </span>
       </div>
     </div>
