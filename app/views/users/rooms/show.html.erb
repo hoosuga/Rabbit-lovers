@@ -111,7 +111,7 @@
   <%= form_with model: [@room, @comment], method: :post do |f| %>
     <div class="row">
       <div class="col-12">
-        <%= f.text_area :body, placeholder: "コメントを入力" , class: 'form-control' %>
+        <%= f.text_area :body, placeholder: "コメントを入力(300文字以内)" , class: 'form-control' %>
       </div>
     </div>
     <div class="row pt-3">
