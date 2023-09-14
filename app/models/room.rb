@@ -11,7 +11,7 @@ class Room < ApplicationRecord
   validate :exist_category_room
   
   
-  enum status: { open: 0, close: 2 }
+  enum status: { open: 0, close: 2 }, _prefix: true
   
   def self.search(params)
      Room.joins(:user, :categories).where('rooms.title LIKE ? OR rooms.body LIKE ? OR users.name LIKE ? OR categories.name LIKE ?',

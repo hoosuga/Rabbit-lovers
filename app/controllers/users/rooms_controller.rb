@@ -35,13 +35,13 @@ class Users::RoomsController < ApplicationController
   end
 
   def show
-    #if @room.status? && @room.user != current_user
-      #@category_ids = params[:category_ids]&.select(&:present?)
-      #@category_name = Category.where(id: @category_ids).pluck(:name)
-      #@rooms = Room.all.where(status: 0).page(params[:page]).per(10)
-      #flash.now[:alert] = "このページにはアクセスできません。"
-      #render :index
-    #end
+    if @room.status_close? && @room.user != current_user
+      @category_ids = params[:category_ids]&.select(&:present?)
+      @category_name = Category.where(id: @category_ids).pluck(:name)
+      @rooms = Room.all.where(status: 0).page(params[:page]).per(10).order(updated_at: :desc)
+      flash[:alert] = "このページにはアクセスできません。"
+      redirect_to rooms_path
+    end
       @comment = current_user.comments.new
   end
 
