@@ -8,7 +8,7 @@ class Users::Users::RoomsController < ApplicationController
     @category_name = Category.where(id: @category_ids).pluck(:name)
     
     if params[:status]
-      @user_rooms = @user_rooms.where(status:params[:status])
+      @user_rooms = @user_rooms.where(status:params[:status]).order(updated_at: :desc)
     end
 
     if @user == current_user
@@ -35,7 +35,7 @@ class Users::Users::RoomsController < ApplicationController
         @rooms = @user_rooms.where(status: 0)
       end
     end
-    @rooms = @rooms.page(params[:page]).per(10)
+    @rooms = @rooms.page(params[:page]).per(10).order(updated_at: :desc)
   end
   
   private

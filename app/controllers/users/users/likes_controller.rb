@@ -3,7 +3,7 @@ class Users::Users::LikesController < ApplicationController
   before_action :set_user, only: [:index]
   
   def index
-    @rooms = @user.liked_rooms.where(status: "open").page(params[:page]).per(10)
+    @rooms = @user.liked_rooms.where(status: "open").page(params[:page]).per(10).order(updated_at: :desc)
   end
   
   private
