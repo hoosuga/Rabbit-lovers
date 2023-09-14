@@ -6,11 +6,11 @@ class Users::UsersController < ApplicationController
   
   def index
     if params[:search].present?
-      @users = User.search(params)
+      @users = User.search(params).order(updated_at: :desc)
     else
-      @users = User.all.where(is_deleted: 0)
+      @users = User.all.where(is_deleted: 0).order(updated_at: :desc)
     end
-    @users = @users.page(params[:page]).per(10)
+    @users = @users.page(params[:page]).per(10).order(updated_at: :desc)
   end
 
   def show

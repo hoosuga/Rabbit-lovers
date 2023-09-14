@@ -8,12 +8,12 @@ class Users::RoomsController < ApplicationController
     @category_name = Category.where(id: @category_ids).pluck(:name)
     
     if params[:search].present?
-      @rooms = Room.search(params).where(status: 0).page(params[:page]).per(10)
+      @rooms = Room.search(params).where(status: 0).page(params[:page]).per(10).order(updated_at: :desc)
     elsif @category_ids.present?
       room_ids = CategoryRoom.where(category_id: @category_ids).pluck(:room_id).uniq
-      @rooms = Room.where(id: room_ids).where(status: 0).page(params[:page]).per(10)
+      @rooms = Room.where(id: room_ids).where(status: 0).page(params[:page]).per(10).order(updated_at: :desc)
     else
-      @rooms = Room.all.where(status: 0).page(params[:page]).per(10)
+      @rooms = Room.all.where(status: 0).page(params[:page]).per(10).order(updated_at: :desc)
     end
     
     @room = Room.new #新規設立
@@ -35,13 +35,13 @@ class Users::RoomsController < ApplicationController
   end
 
   def show
-    if @room.status? && @room.user != current_user
-      @category_ids = params[:category_ids]&.select(&:present?)
-      @category_name = Category.where(id: @category_ids).pluck(:name)
-      @rooms = Room.all.where(status: 0).page(params[:page]).per(10)
-      flash.now[:alert] = "このページにはアクセスできません。"
-      render :index
-    end
+    #if @room.status? && @room.user != current_user
+      #@category_ids = params[:category_ids]&.select(&:present?)
+      #@category_name = Category.where(id: @category_ids).pluck(:name)
+      #@rooms = Room.all.where(status: 0).page(params[:page]).per(10)
+      #flash.now[:alert] = "このページにはアクセスできません。"
+      #render :index
+    #end
       @comment = current_user.comments.new
   end
 
