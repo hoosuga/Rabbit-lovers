@@ -3,11 +3,11 @@ class Admins::CommentsController < ApplicationController
   
   def index
     if params[:search].present?
-      @comments = Comment.search(params)
+      @comments = Comment.search(params).order(updated_at: :desc)
     else
-      @comments = Comment.all
+      @comments = Comment.all.order(updated_at: :desc)
     end
-    @comments = @comments.page(params[:page]).per(10)
+    @comments = @comments.page(params[:page]).per(10).order(updated_at: :desc)
   end
   
   def destroy

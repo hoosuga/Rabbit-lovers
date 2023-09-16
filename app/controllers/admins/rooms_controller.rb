@@ -3,9 +3,9 @@ class Admins::RoomsController < ApplicationController
   
   def index
     if params[:search].present?
-      @rooms = Room.search(params).page(params[:page]).per(20)
+      @rooms = Room.search(params).page(params[:page]).per(20).order(updated_at: :desc)
     else
-      @rooms = Room.all.page(params[:page]).per(20)
+      @rooms = Room.all.page(params[:page]).per(20).order(updated_at: :desc)
     end
   end
 
