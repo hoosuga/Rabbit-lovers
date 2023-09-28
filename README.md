@@ -40,7 +40,7 @@ URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1
     URL：https://drive.google.com/file/d/15sj9ibUoLtUddzbxOu_R8pXXiv2h2jOV/view?usp=sharing  
 - ワイヤーフレーム  
   - ユーザー側  
-    URL：https://drive.google.com/file/d/169yjE2KzbGbT9463VIr-Zv5U8dVMf8xS/view?usp=sharing  
+    URL：https://drive.google.com/file/d/1rAW0hCjYJZL8sdpwTIf2dbcAHM5SH-ld/view?usp=sharing  
   - 管理者側  
     URL：https://drive.google.com/file/d/1xr6nu3-gvyPSrtFwJAAl-T6-hh_8WdHW/view?usp=sharing  
 - ER図  
