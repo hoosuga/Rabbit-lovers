@@ -42,7 +42,7 @@ URL：https://docs.google.com/spreadsheets/d/1il6JrYX8KQ-zdgLR4UBDS0gk-_yp9BoXW1
   - ユーザー側  
     URL：https://drive.google.com/file/d/169yjE2KzbGbT9463VIr-Zv5U8dVMf8xS/view?usp=sharing  
   - 管理者側  
-    URL：https://drive.google.com/file/d/1XVWCgjfdMWrz-EXBnQgvFjukp6pODMni/view?usp=sharing  
+    URL：https://drive.google.com/file/d/1xr6nu3-gvyPSrtFwJAAl-T6-hh_8WdHW/view?usp=sharing  
 - ER図  
 URL：https://drive.google.com/file/d/1O0pb4_uh97NbP9uaOH4WonaL6Flzckx1/view?usp=sharing  
 - テーブル定義書  
